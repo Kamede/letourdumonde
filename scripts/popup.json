@@ -1,0 +1,6 @@
+{
+    "form": {
+        "inscription": "<h2>Inscription</h2><form><div class=\"wrapper\">Clé d'indentification<input type=\"text\" placeholder=\"Clé d'activation\" name=\"key\">Pseudo<input type=\"text\" placeholder=\"Pseudo\" name=\"key\">Adresse e-mail<input type=\"mail\" placeholder=\"e-mail\" name=\"key\">Mot de passe<input type=\"password\" placeholder=\"Confirmez votre mot de passe\" name=`\"password\">Confirmation du mot de passe<input type=\"password\" placeholder=\"Mot de passe\" name=\"password\"></label><input type=\"submit\" name=\"submit\" value=\"Continuer\"></div></form>",
+        "connexion": "<h2>Connexion</h2><form> <div class=\"wrapper\"> Pseudo <input type=\"text\" placeholder=\"Login\" name=\"key\">Mot de passe <input type=\"password\" placeholder=\"Mot de passe\" name=\"password\"><input type=\"submit\" name=\"submit\" value=\"Continuer\"> </div> </form>"
+    }
+}

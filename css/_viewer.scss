@@ -1,0 +1,127 @@
+#viewer {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(161, 161, 161);
+    background-size: cover;
+}
+
+#viewer-fullscreen {
+    filter: invert(100%) sepia(0%) saturate(7487%) hue-rotate(148deg) brightness(102%) contrast(104%);
+    width: 42px;
+    float: right;
+    margin: 20px;
+    opacity: 0.3;
+    transition: 0.3s ease all;
+}
+
+#viewer-fullscreen:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#viewer-textbox {
+    width: 700px;
+    height: auto;
+    min-height: 100px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 30px;
+    font-family: 'century-gothic';
+    text-align: justify;
+    border: 5px solid white;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+    img {
+        width: 100px;
+        float: left;
+        padding-right: 10px;
+    }
+}
+
+#viewer-textbox-wrapper {
+    position: fixed;
+    margin-top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    p {
+        color: white;
+        font-size: 40px;
+        font-family: "ludicrous";
+        margin: 0;
+    }
+}
+
+#viewer-puzzle {
+    position: fixed;
+    color: white;
+    font-size: 40px;
+    font-family: "century-gothic";
+    margin: 30px 0 0 30px;
+}
+
+#viewer-tips {
+    margin-top: 30px;
+    width: 710px;
+    height: 300px;
+    padding: 30px;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+#viewer-answer {
+    margin-top: 30px;
+    width: 710px;
+    height: 150px;
+    padding: 30px;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+    form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    span {
+        margin: 0 auto 30px auto;
+    }
+
+    input[type=text] {
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid gray;
+        display: inline-block;
+        font-size: 50px;
+        margin: 0 15px;
+        width: 3rem;
+        text-align: center;
+      }
+
+    input[type=submit] {
+        width: 120px;
+        height: 40px;
+        margin: 0 auto;
+        background-color: rgb(40, 241, 33);
+        border: 0;
+        font-family: "century-gothic";
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: 0.3s ease all;
+    }
+
+    input[type=submit]:hover {
+        opacity: 1;    
+    }
+
+    input[type=text]:focus {
+    outline: none;
+    color: dodgerblue;
+    }
+}
+

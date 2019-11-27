@@ -1,0 +1,225 @@
+.popup {
+    width: 420px;
+    height: auto;
+    position: fixed;
+    z-index: 2;
+    display: none;
+    top:50%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-300px; 
+    opacity: 0;
+    background-color: white;
+    border-radius: 25px; 
+
+    h2 {
+        margin: 0 0 20px 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 40px;
+        font-family: 'century-gothic';
+
+        input, label {
+            width: 270px;
+            margin-top: 10px;
+            display: block;
+            font-family: 'century-gothic';
+        }
+
+        label {
+            padding: 0;
+        }
+
+        input {
+            height: 30px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid $nightblue;
+        }
+
+        input[type="submit"] {
+            width: 282px;
+            margin-top: 20px;
+            color: white;
+            background-color: $pink;
+            font-family: 'ludicrous';
+            font-size: 24px;
+            height: 40px;
+            border: none;
+        }
+    }
+}
+
+.dim {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    visibility: hidden;
+    background-color: black;
+    opacity: 0;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+
+    nav {
+
+        ul {
+
+            float: right;
+            margin-right: 20px;
+            li {
+                margin-left: 40px;
+                display: inline;
+                font-family: 'ludicrous';
+                font-size: 26px;
+                color: $nightblue;
+                cursor: pointer;
+                transition: 0.3s ease all;
+
+                button {
+                    width: 140px;
+                    height: 50px;
+                    border: none;
+                    font-family: 'ludicrous';
+                    font-size: 26px;
+                    background-color: $nightblue;
+                    color: white;
+                    transition: 0.3s ease all;
+                }
+
+                button:hover {
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+            }
+
+            li:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+    
+    .title {
+        display: flex;
+
+        h1 {
+            width: 500px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            position: absolute;
+            text-align: center;
+            font-family: 'ludicrous';
+            font-size: 60px;
+            color: $nightblue;
+        }
+
+        img {
+            margin-left: 0px;
+            animation: 0.8s appear forwards;
+        }
+    }
+}
+
+h2 {
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'ludicrous';
+    font-size: 40px;
+    color: $nightblue;
+}
+
+#rules {
+    width: 100%;
+    height: auto;
+    background-color: $orange;
+
+    p {
+        width: 700px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+        text-align: justify;
+        font-family: 'century-gothic';
+        font-size: 18px;
+        line-height: 27px;
+        color: $nightblue;
+
+        span {
+            float: right;
+            font-family: 'ludicrous';
+            font-size: 28px;
+        }
+
+        span:hover {
+            transition: 0.3s ease all;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}
+
+#sky {
+    width: 100%;
+    height: 300px;
+    background-color: #509DB8;
+
+    #video {
+        object-fit: cover;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 300px;
+    background-color: $pink;
+
+    #footer-wrapper {
+        display: flex;
+
+        .column {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+
+            img {
+                width: 180px;
+                filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
+            }
+
+            ul {
+                
+                li {
+                    margin: 30px 0;
+                    font-family: 'century-gothic';
+                    font-size: 18px;
+                    color: white;
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        margin-left: 0;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 100px;
+    }
+}
+
