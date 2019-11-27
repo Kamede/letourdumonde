@@ -270,6 +270,68 @@ footer #footer-wrapper .column ul li {
   list-style: none;
 }
 
+.profil-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  margin-bottom: 100px;
+}
+
+.profil-wrapper__left {
+  width: 50%;
+  border-right: 2px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profil-wrapper__left h3 {
+  margin: 30px 0 0 30px;
+  text-align: left;
+  font-family: 'ludicrous';
+  font-size: 40px;
+  color: #222751;
+}
+
+.profil-wrapper__left ul {
+  list-style: none;
+}
+
+.profil-wrapper__left ul li {
+  margin: 30px 0 0 10px;
+  font-size: 20px;
+  font-family: 'century-gothic';
+}
+
+.profil-wrapper__right {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profil-wrapper__right button {
+  width: 200px;
+  height: 80px;
+  border: none;
+  font-family: 'ludicrous';
+  font-size: 36px;
+  background-color: #222751;
+  color: white;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+}
+
 @-webkit-keyframes appear {
   0% {
     opacity: 0;
@@ -431,5 +493,11 @@ footer #footer-wrapper .column ul li {
 #viewer-answer input[type=text]:focus {
   outline: none;
   color: dodgerblue;
+}
+
+#viewer-tips {
+  margin-top: 30px;
+  width: 710px;
+  height: 300px;
 }
 /*# sourceMappingURL=style.css.map */
