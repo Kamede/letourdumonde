@@ -212,6 +212,8 @@ footer {
     }
 }
 
+// $PROFIL
+
 .profil-wrapper {
     display: flex;
     height: auto;
@@ -258,6 +260,116 @@ footer {
         background-color: $nightblue;
         color: white;
         transition: 0.3s ease all;
+    }
+}
+
+// $PRESENTATION
+
+.presentation-video {
+    width: 800px;
+    height: 400px;
+    background-color: grey;
+    margin: 0 auto;
+}
+
+.presentation-buttons {
+    display: flex;
+    justify-content: center;
+
+    button {
+        margin: 50px;
+        width: 200px;
+        height: 60px;
+        border: none;
+        font-family: 'ludicrous';
+        font-size: 24px;
+        background-color: $nightblue;
+        color: white;
+        transition: 0.3s ease all;
+    }
+}
+
+// $AIDE
+
+.aide {
+    margin: 50px;
+
+    h2 {
+        text-align: left;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 30px;
+        font-family: 'century-gothic';
+    }
+}
+
+table {
+    margin: 100px auto;
+    width: 80%;
+    padding: 100px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: $nightblue;
+    padding: 20px;
+    color: white;
+    font-family: 'century-gothic';
+    font-size: 16px;
+}
+
+tr {
+    font-family: 'century-gothic';
+    font-size: 16px;
+    height: 30px;
+}
+
+.th-first {
+    border-radius: 50px 0 0 50px;
+}
+
+.th-last {
+    border-radius: 0 50px 50px 0;
+}
+
+.presentation {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    form {
+        display: flex;
+        flex-direction: column;
+    
+
+        input[type=text] {
+            margin: 20px auto;
+            padding: 14px;
+            font-family: 'century-gothic';
+            font-size: 16px;
+            width: 300px;
+            border-radius: 15px;
+            border: 1px solid $nightblue;
+        }
+        input[type=submit] {
+            margin: 50px auto;
+            padding: 14px;
+            font-family: 'ludicrous';
+            font-size: 24px;
+            color: white;
+            border: 0;
+            width: 400px;
+            border-radius: 15px;
+            background-color: $pink;
+            text-align: center;
+        }
+        label {
+            margin: 0 auto;
+            font-family: 'century-gothic';
+            font-size: 24px;
+        }
     }
 }
 

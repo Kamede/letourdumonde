@@ -1,3 +1,6 @@
+    <title>Profil</title>
+</head>
+<body>
 <header>
     <nav>
         <ul>

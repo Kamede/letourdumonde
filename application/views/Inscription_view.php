@@ -1,3 +1,6 @@
+    <title>Inscription</title>
+</head>
+<body>
 <div class="popup"></div>
 <div class="dim"></div>
 <header>

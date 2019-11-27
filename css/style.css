@@ -332,6 +332,131 @@ footer #footer-wrapper .column ul li {
   transition: 0.3s ease all;
 }
 
+.presentation-video {
+  width: 800px;
+  height: 400px;
+  background-color: grey;
+  margin: 0 auto;
+}
+
+.presentation-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.presentation-buttons button {
+  margin: 50px;
+  width: 200px;
+  height: 60px;
+  border: none;
+  font-family: 'ludicrous';
+  font-size: 24px;
+  background-color: #222751;
+  color: white;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+}
+
+.aide {
+  margin: 50px;
+}
+
+.aide h2 {
+  text-align: left;
+}
+
+.aide p {
+  font-size: 20px;
+  line-height: 30px;
+  font-family: 'century-gothic';
+}
+
+table {
+  margin: 100px auto;
+  width: 80%;
+  padding: 100px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #222751;
+  padding: 20px;
+  color: white;
+  font-family: 'century-gothic';
+  font-size: 16px;
+}
+
+tr {
+  font-family: 'century-gothic';
+  font-size: 16px;
+  height: 30px;
+}
+
+.th-first {
+  border-radius: 50px 0 0 50px;
+}
+
+.th-last {
+  border-radius: 0 50px 50px 0;
+}
+
+.presentation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.presentation form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.presentation form input[type=text] {
+  margin: 20px auto;
+  padding: 14px;
+  font-family: 'century-gothic';
+  font-size: 16px;
+  width: 300px;
+  border-radius: 15px;
+  border: 1px solid #222751;
+}
+
+.presentation form input[type=submit] {
+  margin: 50px auto;
+  padding: 14px;
+  font-family: 'ludicrous';
+  font-size: 24px;
+  color: white;
+  border: 0;
+  width: 400px;
+  border-radius: 15px;
+  background-color: #E38F8F;
+  text-align: center;
+}
+
+.presentation form label {
+  margin: 0 auto;
+  font-family: 'century-gothic';
+  font-size: 24px;
+}
+
 @-webkit-keyframes appear {
   0% {
     opacity: 0;
