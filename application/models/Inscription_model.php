@@ -42,26 +42,86 @@ class Inscription_model extends CI_Model {
         $retour = mail($email, $sujet, $message, $entete);
     }
 
-    public function inscription(){
+    public function inscription_verif(){
+
         $pseudo=$this->input->post('pseudo');
         $mail=$this->input->post('mail');
         $mdp=$this->input->post('mdp');
         $mdp_conf=$this->input->post('mdp_conf');
         $code=$this->input->post('code');
 
-        $query = $this->db->get('user');
-        return $query->result_array();
 
+        $query=$this->db->get_where('user', array('user_pseudo' => $pseudo));
+        $query_2=$this->db->get_where('user', array('user_email' => $mail));
+        $query_3=$this->db->get_where('cle', array('cle_numero' => $code));
 
+        $verif_1=$query->result_array();
+        $verif_2=$query_2->result_array();
+        $verif_3=$query_3->result_array();
 
-        if($mdp == $mdp_conf){
-            echo $pseudo;
-        }else{
-            echo "mdp erreur";
+        if (!empty($verif_3)){
+            var_dump($verif_3[0]['cle_etat']);
+            if($verif_3[0]['cle_etat']==1){
+                echo "Cette clé d'activation est déja utilisée pour un autre compte";
+            }else if($verif_3[0]['cle_etat']==0) {
+
+                if (!empty($verif_1)){
+                    echo "Ce pseudo est déja utilisé";
+                } else if(!empty($verif_2)){
+                    echo "Cette adresse mail est déja utilisée";
+                } else {
+                    if ($mdp!=$mdp_conf){
+                        echo "Les mots de passe ne correspondent pas.";
+                    }else{
+                        $mdp_final= password_hash($mdp, PASSWORD_BCRYPT);
+                        $data = array('user_pseudo' => $pseudo, 'user_email' => $mail, 'user_mdp' => $mdp_final,'user_cle'=>$code);
+                        $inscription=$this->db->insert('user', $data);
+
+                        $query_4=$this->db->get_where('user', array('user_pseudo' => $pseudo));
+                        $activ=$query_4->result_array();
+
+                        //passer de 0 a 1 pour activer la clé
+                        $cle_id=$verif_3[0]['cle_id'];
+                        $data_2 = array('cle_etat' => 1);
+                        $where_2 = "cle_id = ".$cle_id ;
+                        $desactivation_cle = $this->db->update('cle', $data_2, $where_2);
+
+                        $id=$activ[0]['user_id'];
+                        $cle_id=$verif_3[0]['cle_id'];
+                        $data_3 = array('_user_id' => $id);
+                        $where_3 = "cle_id = ".$cle_id ;
+                        $liage_compte_cle = $this->db->update('cle', $data_3, $where_3);
+
+                        $envoi = 'camille.mestrude@etudiant.univ-reims.fr';
+                        $entete  = 'MIME-Version: 1.0' . "\r\n";
+                        $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+                        $entete .= 'From:'.$envoi."\r\n";
+                        $sujet = "Message de confirmation d'inscription | Le Tour Du Monde En 10 Enigmes";
+                        $message = '<div style="padding: 10px;padding-bottom:0;color: black;"><h1>Bienvenue petit astronaute ! | Le Tour Du Monde En 10 Enigmes</h1>
+			        <br>
+			        <p>Bienvenue sur notre site '.$pseudo.' ! Prépare-toi à faire ton entrée dans une aventure extraordinaire !</p>
+			        <br>
+			        <p>Merci d\'avoir pris part au jeu, nous te confirmons que ton inscription a bien été effectuée ! </p>
+			        <p>Tu peux jouer dès maintenant à cette adresse : http://89.234.183.207/letourdumonde</p>
+			        <p>Voici les informations que tu as entré lors de ton inscription :</p>
+			        <p>Pseudo : '.$pseudo.'</p>
+			        <p>Adresse Mail : '.$mail.'</p>
+			        <p>Clé d\'activation : '.$code.'</p>
+			        <br>
+			        <p>À bientôt !</p>
+			        <br><br>
+			        <p>L\'équipe du Tour du monde en 10 énigmes</p>
+			        <br><br>
+			        <img style="width: 100wv" src="http://89.234.183.207/letourdumonde/assets/images/mail3.png"></div>';
+                        //$retour = mail($mail, $sujet, $message, $entete);
+
+                    }
+                }
+            }
         }
-
-
+        header('Location: Accueil');
     }
+
 
     /**
      * @return mixed

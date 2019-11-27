@@ -9,11 +9,9 @@ class Inscription extends CI_Controller {
         //$this->Inscription_model->envoiemailconfirmation('drossproduction57@gmail.com','Sergen'); // Envoie de mail de confirmation
         //$this->Inscription_model->envoiemailconfirmation('jules.sab132@outlook.fr','Xx_JujuDu51_xX'); // Envoie de mail de confirmation
 
-        //$this->load->view("Header_view");
-        //$this->load->view("Inscription_view");// Vue + envoyer les enigmes
-        //$this->load->view("Footer_view");
-    }
+        $this->Inscription_model->inscription_verif();
 
+    }
 
 }
 
