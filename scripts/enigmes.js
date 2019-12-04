@@ -17,6 +17,7 @@ $(document).ready( function()
             success: function(result) 
             {
 
+                console.log(result);
                 // changing puzzle number
                 $('#viewer-puzzle').html("Enigme N°" + result[0].enigme_id);
 
@@ -26,14 +27,16 @@ $(document).ready( function()
                 // changing character
                 $("#character-scnd").attr("src", "assets/images/viewer/characters/" + result[0].enigme_perso);
 
-                let dialogue = result[0].enigme_dialogue;
-                let indices = result[0].enigme_indice;
+                dialogue = result[0].enigme_dialogue;
+                indices = result[0].enigme_indice;
 
                 // remove non-printable and other non-valid JSON chars
                 dialogue = dialogue.replace(/[\u0000-\u0019]+/g,""); 
                 dialogue = JSON.parse(dialogue);
 
-                $("#viewer-tips").append("<img src='assets/images/viewer/tips/" + indices + "'>");
+                console.log(dialogue);
+
+                $("#viewer-tips").html("<img src='assets/images/viewer/tips/" + indices + "'>");
                 console.log("<img src='assets/images/viewer/tips/" + indices + "'>");
 
                 // Onclick
@@ -42,10 +45,12 @@ $(document).ready( function()
                 $("#viewer").click(function()
                 {
                     console.log(index);
+                    console.log(dialogue.length-1)
                     if(index < dialogue.length-1)
                     {
                         // Counter
                         index++;
+
 
                         // Cleaning old message
                         $('#viewer-textbox').html("");
@@ -57,13 +62,15 @@ $(document).ready( function()
                         $timeout = 50;
 
                         // Splitting message
-                        $message = dialogue[index].message.split('').reverse();
+                        message = dialogue[index].message.split('').reverse();
+                        
+                        console.log(message);
 
                         // Animating the text
                         var output = setInterval(function() 
                         {
-                            $('#viewer-textbox').append($message.pop());
-                            if ($message.length === 0) 
+                            $('#viewer-textbox').append(message.pop());
+                            if (message.length === 0) 
                             {            
                                 clearInterval(output);   
                             }
@@ -74,7 +81,6 @@ $(document).ready( function()
                     }   
                     else
                     {
-                        // Debugging only
                         console.log("No messages found")
                     }
                 });
@@ -166,6 +172,10 @@ $(document).ready( function()
 
     $("#popup-button").click(function() {
         id_counter++;
+        index = null;
+        message = null;
+        $('#viewer-textbox').html("");
+        $('#viewer-textbox-name').html("");
         getenigme(id_counter);
     });
 });
