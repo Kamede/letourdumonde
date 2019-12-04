@@ -1,6 +1,6 @@
 {
     "form": {
         "inscription": "<h2>Inscription</h2><form action=\"inscription\" method=\"post\"><div class=\"wrapper\">Clé d'indentification<input type=\"text\" placeholder=\"Clé d'activation\" name=\"code\">Pseudo<input type=\"text\" placeholder=\"Pseudo\" name=\"pseudo\">Adresse e-mail<input type=\"mail\" placeholder=\"e-mail\" name=\"mail\">Mot de passe<input type=\"password\" placeholder=\"Confirmez votre mot de passe\" name=\"mdp\">Confirmation du mot de passe<input type=\"password\" placeholder=\"Mot de passe\" name=\"mdp_conf\"></label><input type=\"submit\" name=\"submit\" value=\"Continuer\"></div></form>",
-        "connexion": "<h2>Connexion</h2><form> <div class=\"wrapper\"> Pseudo <input type=\"text\" placeholder=\"Login\" name=\"pseudo\">Mot de passe <input type=\"password\" placeholder=\"Mot de passe\" name=\"mdp\"><input type=\"submit\" name=\"submit\" value=\"Continuer\"> </div> </form>"
+        "connexion": "<h2>Connexion</h2><form action=\"connexion\" method=\"post\"> <div class=\"wrapper\"> Pseudo <input type=\"text\" placeholder=\"Login\" name=\"pseudo\">Mot de passe <input type=\"password\" placeholder=\"Mot de passe\" name=\"mdp\"><input type=\"submit\" name=\"submit\" value=\"Continuer\"> </div> </form>"
     }
 }

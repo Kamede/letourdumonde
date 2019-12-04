@@ -100,7 +100,7 @@ $(document).ready( function()
             $.ajax(
             {
                 type: 'POST',
-                url: 'enigme/validation',
+                url: 'Enigme/validation',
                 data: {response_data: response, id: 1},
                 dataType: 'json',
                 cache: false,
@@ -182,5 +182,6 @@ $(document).ready( function()
             $('#viewer-textbox-name').html("");
             getenigme(id_counter);
         }
+
     });
 });

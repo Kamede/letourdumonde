@@ -1,13 +1,17 @@
     <title>Accueil</title>
 </head>
 <body>
-<div class="popup"></div>
+
+<?php
+if (isset($_SESSION['pseudo'])){
+    echo '<div class="popup"></div>
 <div class="dim"></div>
 <header>
     <nav>
         <ul>
-            <li data-popup='connexion'>Connexion</li>
-            <li data-popup='inscription'>Inscription</li>
+            <li><a href="'.base_url().'Connexion/deconnexion">Deconnexion</a></li>
+            <li><a href="'.base_url().'Enigme">Enigme</a></li>
+
             <li>
                 <button>Jouer</button>
             </li>
@@ -17,7 +21,28 @@
         <img src="assets/images/index/logo_couleur.svg">
         <h1>Le tour du monde en 10 énigmes</h1>
     </div>
-</header>
+</header>';
+}else{
+    echo '<div class="popup"></div>
+<div class="dim"></div>
+<header>
+    <nav>
+        <ul>
+            <li data-popup=\'connexion\'>Connexion</li>
+            <li data-popup=\'inscription\'>Inscription</li>
+            <li>
+                <button>Jouer</button>
+            </li>
+        </ul>
+    </nav>
+    <div class="title">
+        <img src="assets/images/index/logo_couleur.svg">
+        <h1>Le tour du monde en 10 énigmes</h1>
+    </div>
+</header>';
+}
+?>
+
 <div id="rules">
     <h2>Règles du jeu</h2>
     <p>

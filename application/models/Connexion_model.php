@@ -1,13 +1,11 @@
 <?php
 class Connexion_model extends CI_Model
 {
-
     protected $pseudo;
     protected $email;
     protected $cle;
     protected $mdp;
     protected $etat;
-
 
     public function __construct()
     {
@@ -20,6 +18,15 @@ class Connexion_model extends CI_Model
         $query = $this->db->get('user');
         return $query->result_array();
     }
+
+    public function connexion_action(){
+        if (isset($_SESSION['connecte'])){
+            redirect(base_url().'test');
+        }else{
+            redirect(base_url());
+        }
+    }
+
     public function connexion(){
 
         $pseudo=$this->input->post('pseudo');
@@ -34,16 +41,23 @@ class Connexion_model extends CI_Model
             if (empty($verif_1)) {
                 $_SESSION['erreur'] = "Ce pseudo n'est pas valide";
             } else {
-                $hash = $verif_1[0]['user_mdp'];
-                if (password_verify($mdp, $hash)) {
+
+                if (password_verify($mdp, $verif_1[0]['user_mdp'])) {
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['mail'] =$verif_1[0]['user_email'];
+                    redirect(base_url());
                 } else {
                     $_SESSION['erreur'] = "Le mot de passe est invalide.";
                 }
-
             }
         }
+        echo $_SESSION['erreur'];
+    }
+
+
+    public function deconnexion(){
+        unset($_SESSION);
+        redirect(base_url());
     }
 
 

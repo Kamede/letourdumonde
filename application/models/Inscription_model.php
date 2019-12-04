@@ -42,6 +42,7 @@ class Inscription_model extends CI_Model {
         $retour = mail($email, $sujet, $message, $entete);
     }
 
+
     public function inscription_verif(){
 
         $pseudo=$this->input->post('pseudo');
@@ -49,6 +50,8 @@ class Inscription_model extends CI_Model {
         $mdp=$this->input->post('mdp');
         $mdp_conf=$this->input->post('mdp_conf');
         $code=$this->input->post('code');
+
+
 
         if (empty($pseudo)||empty($mail)||empty($code)){
             $_SESSION['erreur']="Veuillez remplir tous les champs.";
@@ -121,6 +124,10 @@ class Inscription_model extends CI_Model {
                             <img style="width: 100wv" src="http://89.234.183.207/letourdumonde/assets/images/mail3.png"></div>';
                                 //$retour = mail($mail, $sujet, $message, $entete);
                                 $_SESSION['erreur'] = '';
+                                $_SESSION['pseudo'] = $pseudo;
+                                $_SESSION['mail'] =$mail;
+                                $_SESSION['connecte']="oui";
+                                redirect(base_url());
                             }
                         }
                     }
@@ -135,6 +142,7 @@ class Inscription_model extends CI_Model {
         }
         //header('Location: Accueil');
     }
+
 
 
     /**
