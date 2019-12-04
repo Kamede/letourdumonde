@@ -50,6 +50,8 @@ $(document).ready( function()
                     {
                         // Counter
                         index++;
+                        $("#player").attr("src", "assets/audio/" + Math.floor(Math.random() * 12) + ".mp3" );
+                        $("#player")[0].play();
 
 
                         // Cleaning old message
@@ -104,7 +106,7 @@ $(document).ready( function()
                 cache: false,
                 success: function(result) 
                 {
-
+                    validate = result;
                     // Checking if success
                     if(result == true)
                     {
@@ -131,7 +133,7 @@ $(document).ready( function()
         });
     });
 
-    $('#popup-button').click(function() {
+    $('#popup-button ').click(function() {
         $('#popup').fadeOut();
         $('.dim').animate({opacity: '0'}, 500, function(){$('.dim').css('visibility', 'hidden')})
         $('input[name="1"]').val("");
@@ -171,11 +173,14 @@ $(document).ready( function()
     });
 
     $("#popup-button").click(function() {
-        id_counter++;
-        index = null;
-        message = null;
-        $('#viewer-textbox').html("");
-        $('#viewer-textbox-name').html("");
-        getenigme(id_counter);
+        if (validate === true)
+        { 
+            id_counter++;
+            index = null;
+            message = null;
+            $('#viewer-textbox').html("");
+            $('#viewer-textbox-name').html("");
+            getenigme(id_counter);
+        }
     });
 });
