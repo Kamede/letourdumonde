@@ -1,3 +1,4 @@
+
 #viewer {
     width: 100vw;
     height: 100vh;
@@ -12,6 +13,7 @@
     margin: 20px;
     opacity: 0.3;
     transition: 0.3s ease all;
+    user-select: none;
 }
 
 #viewer-fullscreen:hover {
@@ -31,17 +33,19 @@
     text-align: justify;
     border: 5px solid white;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    user-select: none;
 
     img {
         width: 100px;
         float: left;
         padding-right: 10px;
+        -webkit-user-drag: none;
     }
 }
 
 #viewer-textbox-wrapper {
     position: fixed;
-    margin-top: 60px;
+    margin-top: 20px;
     left: 50%;
     transform: translateX(-50%);
 
@@ -50,15 +54,21 @@
         font-size: 40px;
         font-family: "ludicrous";
         margin: 0;
+        padding-bottom: 14px;
+        height: 40px;
+        user-select: none;
     }
 }
 
 #viewer-puzzle {
     position: fixed;
     color: white;
-    font-size: 40px;
+    font-size: 32px;
     font-family: "century-gothic";
-    margin: 30px 0 0 30px;
+    margin: 20px 0 0 20px;
+    z-index: 10001;
+    user-select: none;
+    
 }
 
 #viewer-tips {
@@ -66,9 +76,16 @@
     width: 710px;
     height: 300px;
     padding: 30px;
-    background-color: white;
-    opacity: 0.7;
+    background-color: rgba(255,255,255,0.7);
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        height: 150px;
+        user-select: none;
+    }
 }
 
 #viewer-answer {
@@ -125,3 +142,48 @@
     }
 }
 
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 200px;
+    z-index: 10000;
+    background-color: white;
+    display: none;
+
+    #popup-button {
+        color: white;
+        font-family: "ludicrous";
+        padding: 8px 24px;
+        font-size: 20px;    
+        border: 0;
+        display: block;
+        margin: 20px auto;
+    }
+
+    #popup-text {
+        text-align: center;
+        font-family: "ludicrous";
+        font-size: 32px;
+    }
+}
+
+#character-main {
+    position: fixed;
+    bottom: 20px;
+    left: 50px;
+    width: 160px;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+#character-scnd {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    width: 160px;
+    -webkit-user-drag: none;
+    user-select: none;
+}

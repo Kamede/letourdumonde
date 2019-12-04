@@ -1,87 +1,88 @@
 $message = "";
 var $timeout = 15; 
+let id_counter = 1;
+
 
 $(document).ready( function() 
 {
-    $.ajax(
-        {
-        type: 'POST',
-        //url: 'controller.php',
-        url: 'enigme/ajax',
-        data: {id:1},
-        dataType: 'json',
-        cache: false,
-        success: function(result) 
-        {
-
-            // changing puzzle number
-            $('#viewer-puzzle').html("Enigme N°" + result[0].enigme_id);
-
-            // changing puzzle background
-            $("#viewer").css("background-image", "url(assets/images/fonds/" + result[0].enigme_fond + ")");
-
-            // changing character
-            $("#character-scnd").attr("src", "assets/images/viewer/characters/" + result[0].enigme_perso);
-
-            let dialogue = result[0].enigme_dialogue;
-            let indices = result[0].enigme_indice;
-
-            // remove non-printable and other non-valid JSON chars
-            dialogue = dialogue.replace(/[\u0000-\u0019]+/g,""); 
-            dialogue = JSON.parse(dialogue);
-
-            indices = indices.replace(/[\u0000-\u0019]+/g,""); 
-            indices = JSON.parse(indices);
-
-            for (var i = 0; i < indices.length; i++) {
-                $("#viewer-tips").html("<img src='assets/images/viewer/tips/" + indices[i].image + "'>");
-            }
-
-            // Onclick
-            index = -1
-
-            $("#viewer").click(function()
+    function getenigme(id_counter) {
+        $.ajax(
             {
-                console.log(index);
-                if(index < dialogue.length-1)
+            type: 'POST',
+            //url: 'controller.php',
+            url: 'enigme/ajax',
+            data: {id:id_counter},
+            dataType: 'json',
+            cache: false,
+            success: function(result) 
+            {
+
+                // changing puzzle number
+                $('#viewer-puzzle').html("Enigme N°" + result[0].enigme_id);
+
+                // changing puzzle background
+                $("#viewer").css("background-image", "url(assets/images/viewer/fonds/" + result[0].enigme_fond + ")");
+
+                // changing character
+                $("#character-scnd").attr("src", "assets/images/viewer/characters/" + result[0].enigme_perso);
+
+                let dialogue = result[0].enigme_dialogue;
+                let indices = result[0].enigme_indice;
+
+                // remove non-printable and other non-valid JSON chars
+                dialogue = dialogue.replace(/[\u0000-\u0019]+/g,""); 
+                dialogue = JSON.parse(dialogue);
+
+                $("#viewer-tips").append("<img src='assets/images/viewer/tips/" + indices + "'>");
+                console.log("<img src='assets/images/viewer/tips/" + indices + "'>");
+
+                // Onclick
+                index = -1
+
+                $("#viewer").click(function()
                 {
-                    // Counter
-                    index++;
-
-                    // Cleaning old message
-                    $('#viewer-textbox').html("");
-                    
-                    // Setting heads thumbnail
-                    $('#viewer-textbox').append("<img src='assets/images/viewer/characters_head/" + dialogue[index].nom + ".svg'>")
-
-                    // Setting delay
-                    $timeout = 50;
-
-                    // Splitting message
-                    $message = dialogue[index].message.split('').reverse();
-
-                    // Animating the text
-                    var output = setInterval(function() 
+                    console.log(index);
+                    if(index < dialogue.length-1)
                     {
-                        $('#viewer-textbox').append($message.pop());
-                        if ($message.length === 0) 
-                        {            
-                            clearInterval(output);   
-                        }
-                    }, $timeout);
+                        // Counter
+                        index++;
 
-                    // Handling name
-                    $('#viewer-textbox-name').html(dialogue[index].nom); 
-                }   
-                else
-                {
-                    // Debugging only
-                    console.log("No messages found")
-                }
-            });
-        },
-    });
+                        // Cleaning old message
+                        $('#viewer-textbox').html("");
+                        
+                        // Setting heads thumbnail
+                        $('#viewer-textbox').append("<img src='assets/images/viewer/characters_head/" + dialogue[index].nom + ".svg'>")
 
+                        // Setting delay
+                        $timeout = 50;
+
+                        // Splitting message
+                        $message = dialogue[index].message.split('').reverse();
+
+                        // Animating the text
+                        var output = setInterval(function() 
+                        {
+                            $('#viewer-textbox').append($message.pop());
+                            if ($message.length === 0) 
+                            {            
+                                clearInterval(output);   
+                            }
+                        }, $timeout);
+
+                        // Handling name
+                        $('#viewer-textbox-name').html(dialogue[index].nom); 
+                    }   
+                    else
+                    {
+                        // Debugging only
+                        console.log("No messages found")
+                    }
+                });
+            },
+        });
+    }
+
+    getenigme(id_counter);
     // Managing answer
     $(function() {
         $('form').submit(function(event) {
@@ -161,5 +162,10 @@ $(document).ready( function()
 
     $("#viewer-fullscreen").click(function() {
         toggleFullScreen(document.body);
+    });
+
+    $("#popup-button").click(function() {
+        id_counter++;
+        getenigme(id_counter);
     });
 });
