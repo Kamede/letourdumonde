@@ -4,6 +4,7 @@
     height: 100vh;
     background-color: rgb(161, 161, 161);
     background-size: cover;
+    background-position: bottom;
 }
 
 #viewer-fullscreen {
@@ -152,6 +153,7 @@
     z-index: 10000;
     background-color: white;
     display: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
     #popup-button {
         color: white;
