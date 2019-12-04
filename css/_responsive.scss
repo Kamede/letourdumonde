@@ -3,3 +3,14 @@
     width: 710px;
     height: 300px;
 }
+@media screen and (max-width: 1366px)
+{
+    #viewer-tips {
+        height: 150px;
+    }
+
+    #viewer-answer {
+        padding: 10px;
+        width: 750px;
+    }
+}
