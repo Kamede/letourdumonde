@@ -23,11 +23,12 @@
             <ul>
                 <li>Télécharger le PDF</li>
                 <li>Voir l'avancement dans le jeu</li>
-                <li>Consulter les statistiques</li>
+                <li><a href="Statistiques">Consulter les statistiques</a></li>
+                <li><a href="Informations">Modifier les informations</a></li>
             </ul>
         </div>
     </div>
     <div class="profil-wrapper__right">
-        <button>Jouer</button>
+        <a href="Enigme"><button>Jouer</button></a>
     </div>
 </div>

@@ -230,7 +230,7 @@ h2 {
 
 footer {
   width: 100%;
-  height: 300px;
+  height: 220px;
   background-color: #E38F8F;
 }
 
@@ -253,7 +253,7 @@ footer #footer-wrapper .column {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 300px;
+  height: 200px;
 }
 
 footer #footer-wrapper .column img {
@@ -268,6 +268,11 @@ footer #footer-wrapper .column ul li {
   font-size: 18px;
   color: white;
   list-style: none;
+}
+
+footer #footer-wrapper .column ul li a {
+  color: white;
+  text-decoration: none;
 }
 
 .profil-wrapper {
@@ -305,6 +310,11 @@ footer #footer-wrapper .column ul li {
   margin: 30px 0 0 10px;
   font-size: 20px;
   font-family: 'century-gothic';
+}
+
+.profil-wrapper__left ul li a {
+  color: black;
+  text-decoration: none;
 }
 
 .profil-wrapper__right {

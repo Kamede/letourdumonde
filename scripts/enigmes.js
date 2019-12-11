@@ -50,7 +50,7 @@ $(document).ready( function()
                     {
                         // Counter
                         index++;
-                        $("#player").attr("src", "assets/audio/" + Math.floor(Math.random() * 12) + ".mp3" );
+                        $("#player").attr("src", "assets/audio/" + (Math.floor(Math.random() * 11)+1) + ".mp3" );
                         $("#player")[0].play();
 
 
@@ -175,12 +175,22 @@ $(document).ready( function()
     $("#popup-button").click(function() {
         if (validate === true)
         { 
-            id_counter++;
-            index = null;
-            message = null;
-            $('#viewer-textbox').html("");
-            $('#viewer-textbox-name').html("");
-            getenigme(id_counter);
+            $.ajax(
+                {
+                type: 'POST',
+                url: 'Enigme/enigme_id',
+                dataType: 'json',
+                cache: false,
+                success: function(result) 
+                {
+                    console.log(result)
+                    index = null;
+                    message = null;
+                    $('#viewer-textbox').html("");
+                    $('#viewer-textbox-name').html("");
+                    getenigme(result);
+                }
+            });
         }
 
     });
