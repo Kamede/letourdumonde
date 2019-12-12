@@ -54,7 +54,6 @@ class Connexion_model extends CI_Model
         echo $_SESSION['erreur'];
     }
 
-
     public function deconnexion(){
         unset($_SESSION);
         redirect(base_url());

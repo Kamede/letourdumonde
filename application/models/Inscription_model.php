@@ -81,7 +81,7 @@ class Inscription_model extends CI_Model {
                                 $_SESSION['erreur'] = "Les mots de passe ne correspondent pas.";
                             } else {
                                 $mdp_final = password_hash($mdp, PASSWORD_BCRYPT);
-                                $data = array('user_pseudo' => $pseudo, 'user_email' => $mail, 'user_mdp' => $mdp_final, 'user_cle' => $code);
+                                $data = array('user_pseudo' => $pseudo, 'user_email' => $mail, 'user_mdp' => $mdp_final, 'user_cle' => $code, 'user_etat' => 1);
                                 $inscription = $this->db->insert('user', $data);
 
                                 $query_4 = $this->db->get_where('user', array('user_pseudo' => $pseudo));
@@ -122,7 +122,7 @@ class Inscription_model extends CI_Model {
                             <p>L\'équipe du Tour du monde en 10 énigmes</p>
                             <br><br>
                             <img style="width: 100wv" src="http://89.234.183.207/letourdumonde/assets/images/mail3.png"></div>';
-                                //$retour = mail($mail, $sujet, $message, $entete);
+                                $retour = mail($mail, $sujet, $message, $entete);
                                 $_SESSION['erreur'] = '';
                                 $_SESSION['pseudo'] = $pseudo;
                                 $_SESSION['mail'] =$mail;
@@ -140,7 +140,7 @@ class Inscription_model extends CI_Model {
         echo $_SESSION['erreur'];
         unset($_SESSION['erreur']);
         }
-        //header('Location: Accueil');
+        header('Location: Accueil');
     }
 
 
