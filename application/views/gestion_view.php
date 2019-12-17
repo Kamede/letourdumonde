@@ -23,5 +23,159 @@
 <br><br>
 <h1>Gestion des données</h1>
 <hr>
+    <p>Utilisation : Utilisateurs</p>
+    <ul>
+        <li>Blocage : Pour un blocage sans limite de temps, entrez "X" dans le champ "user heure blocage".</li>
+        <li>Pour débloquer l'utilisateur, indiquez "0" dans ce même champs.</li>
+        <li>Pour un blocage temporaire, indiquez la date de déblocage par ce convertisseur :</li>
+
+    </ul>
+    <br>
+    <div><input type="text" id="jours" placeholder="Jours"/>
+        <input type="text" id="heures" placeholder="Heures"/>
+        <input type="text" id="minutes" placeholder="Minutes"/>
+        <input type="text" id="secondes" placeholder="Secondes"/></div>
+    <div id="test">
+        <p>Ici le résultat convetisseur jours/heures/minutes/secondes en secondes</p>
+    </div>
 </body>
 </html>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(
+        function () {
+
+            //$("#test").load("<?php base_url(); ?>Gestion/convertir/0/0/0/0");
+
+
+            $("#jours").keyup(
+                function () {
+                    if ($("#jours").val() == ' ') $("#jours").val('0');
+
+                    if ($("#jours").val() != '') {
+                        b1=$("#jours").val()
+                    }else{
+                        b1=0
+                    }
+
+                    if ($("#heures").val() != '') {
+                        b2=$("#heures").val()
+                    }else{
+                        b2=0
+                    }
+
+                    if ($("#minutes").val() != '') {
+                        b3=$("#minutes").val()
+                    }else{
+                        b3=0
+                    }
+
+                    if ($("#secondes").val() != '') {
+                        b4=$("#secondes").val()
+                    }else{
+                        b4=0
+                    }
+
+                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+
+                });
+
+            $("#heures").keyup(
+                function () {
+                    if ($("#heures").val() == ' ') $("#heures").val('0');
+
+                    if ($("#jours").val() != '') {
+                        b1=$("#jours").val()
+                    }else{
+                        b1=0
+                    }
+
+                    if ($("#heures").val() != '') {
+                        b2=$("#heures").val()
+                    }else{
+                        b2=0
+                    }
+
+                    if ($("#minutes").val() != '') {
+                        b3=$("#minutes").val()
+                    }else{
+                        b3=0
+                    }
+
+                    if ($("#secondes").val() != '') {
+                        b4=$("#secondes").val()
+                    }else{
+                        b4=0
+                    }
+
+                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+                }
+
+            );
+            $("#minutes").keyup(
+                function () {
+                    if ($("#minutes").val() == ' ') $("#minutes").val('0');
+
+                    if ($("#jours").val() != '') {
+                        b1=$("#jours").val()
+                    }else{
+                        b1=0
+                    }
+
+                    if ($("#heures").val() != '') {
+                        b2=$("#heures").val()
+                    }else{
+                        b2=0
+                    }
+
+                    if ($("#minutes").val() != '') {
+                        b3=$("#minutes").val()
+                    }else{
+                        b3=0
+                    }
+
+                    if ($("#secondes").val() != '') {
+                        b4=$("#secondes").val()
+                    }else{
+                        b4=0
+                    }
+
+                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+                }
+            );
+            $("#secondes").keyup(
+                function () {
+                    if ($("#secondes").val() == ' ') $("#secondes").val('0');
+
+                    if ($("#jours").val() != '') {
+                        b1=$("#jours").val()
+                    }else{
+                        b1=0
+                    }
+
+                    if ($("#heures").val() != '') {
+                        b2=$("#heures").val()
+                    }else{
+                        b2=0
+                    }
+
+                    if ($("#minutes").val() != '') {
+                        b3=$("#minutes").val()
+                    }else{
+                        b3=0
+                    }
+
+                    if ($("#secondes").val() != '') {
+                        b4=$("#secondes").val()
+                    }else{
+                        b4=0
+                    }
+
+                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+                }
+            );
+        }
+    );
+</script>

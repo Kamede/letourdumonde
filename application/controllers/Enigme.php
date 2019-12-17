@@ -4,15 +4,17 @@
 
         public function index() {
             $this->load->model('Enigmes_model');//Charger le modèle
-
-
             $query2 =$this->db->get_where('user', array('user_pseudo' => $_SESSION['pseudo']));
             $verif2=$query2->result_array();
 
-            echo $verif2[0]['user_etat'];
-            echo $_SESSION['blocage']-time('Y-m-d');
-            echo $_SESSION['pseudo'];
-            echo $verif2[0]['user_nb_erreur_actuel'];
+            //echo $verif2[0]['user_etat'];
+            //echo $_SESSION['blocage']-time();
+            //echo $_SESSION['pseudo'];
+            //echo $verif2[0]['user_nb_erreur_actuel'];
+
+            if ($verif2[0]['user_heure_blocage'] == 'X'){
+                redirect(base_url());
+            }
 
 
             if(isset($_SESSION['blocage'])) {
@@ -21,13 +23,13 @@
                         $_SESSION['blocage'] = $verif2[0]['user_heure_blocage'];
                         redirect(base_url());
                     } else {
-                        $recup = $this->Enigmes_model->recuptoutes();//Recuperer les menigmes
+                        $recup = $this->Enigmes_model->recuptoutes();//Recuperer les enigmes
                         $data['toutes'] = $recup;
                         $this->load->view("Enigmes_view", $data);// Vue + envoyer les enigmes
                     }
                 } else {
-                    if ($_SESSION['blocage'] >= time('Y-m-d')) {
-                        echo $_SESSION['blocage'] - time('Y-m-d');
+                    if ($_SESSION['blocage'] >= time()) {
+                        echo $_SESSION['blocage'] - time();
                     } else {
                         $_SESSION['blocage'] = 0;
                         $data = array(

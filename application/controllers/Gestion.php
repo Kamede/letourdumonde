@@ -28,7 +28,7 @@ Class Gestion extends CI_Controller {
         $crud->unset_read();
         $crud->unset_export();
         $output=$crud->render();
-        $this->load->view('GestionAffiche_view',$output);
+        $this->load->view('GestionAffiche2_view',$output);
     }
 
     public function enigme(){
@@ -54,6 +54,13 @@ Class Gestion extends CI_Controller {
         $crud->unset_export();
         $output=$crud->render();
         $this->load->view('GestionAffiche_view',$output);
+    }
+
+    public function convertir($jours,$heures,$minutes,$secondes){
+        $this->load->model('Gestion_model');//Charger le modèle
+        $this->Gestion_model->convertirmodel($jours,$heures,$minutes,$secondes);
+        //$this->load->view("convertir_view"); // Vue + envoyer les manifs
+
     }
 
 }
