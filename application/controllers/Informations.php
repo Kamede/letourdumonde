@@ -8,7 +8,9 @@
             $this->load->view("Footer_view");
         }
 
-        public function changement()
+        public function changement(){
+            
+        }
     }
 
 ?>
