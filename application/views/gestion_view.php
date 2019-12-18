@@ -27,7 +27,7 @@
     <ul>
         <li>Blocage : Pour un blocage sans limite de temps, entrez "X" dans le champ "user heure blocage".</li>
         <li>Pour débloquer l'utilisateur, indiquez "0" dans ce même champs.</li>
-        <li>Pour un blocage temporaire, indiquez la date de déblocage par ce convertisseur :</li>
+        <li>Pour un blocage temporaire, entrez la date de déblocage indiquée par ce convertisseur :</li>
 
     </ul>
     <br>
@@ -78,7 +78,7 @@
                         b4=0
                     }
 
-                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+                    $("#test").load("<?php base_url(); ?>gestion/convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
 
                 });
 
@@ -110,7 +110,7 @@
                         b4=0
                     }
 
-                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+                    $("#test").load("<?php base_url(); ?>gestion/convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
                 }
 
             );
@@ -142,7 +142,7 @@
                         b4=0
                     }
 
-                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+                    $("#test").load("<?php base_url(); ?>gestion/convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
                 }
             );
             $("#secondes").keyup(
@@ -173,7 +173,7 @@
                         b4=0
                     }
 
-                    $("#test").load("<?php base_url(); ?>convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
+                    $("#test").load("<?php base_url(); ?>gestion/convertir/" + b1 + "/" + b2 + "/" + b3 + "/" + b4)
                 }
             );
         }
