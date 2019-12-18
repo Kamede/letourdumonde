@@ -2,7 +2,7 @@ var current = $(window).scrollTop();
 
 // Popup event
 
-$('nav ul li').click(function() {
+$('.popup-li').click(function() {
     $(window).scroll(function() {
       $(window).scrollTop(current);
     });

@@ -175,7 +175,6 @@ header .title h1 {
 
 header .title img {
   margin-left: 0px;
-  width: 150px;
   -webkit-animation: 0.8s appear forwards;
           animation: 0.8s appear forwards;
   width: 150px;
@@ -228,6 +227,11 @@ h2 {
 #sky #video {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 footer {
@@ -781,6 +785,16 @@ tr {
   #viewer-answer {
     padding: 10px;
     width: 750px;
+  }
+  #viewer-textbox-wrapper p {
+    font-size: 30px;
+  }
+  #viewer-textbox-wrapper {
+    margin-top: 0px;
+  }
+  #viewer-puzzle {
+    margin: 5px 0 0 5px;
+    font-size: 24px;
   }
 }
 /*# sourceMappingURL=style.css.map */

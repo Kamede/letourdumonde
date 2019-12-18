@@ -9,11 +9,11 @@ if (isset($_SESSION['pseudo'])){
 <header>
     <nav>
         <ul>
-            <li><a href="'.base_url().'Connexion/deconnexion">Deconnexion</a></li>
-            <li><a href="'.base_url().'Enigme">Enigme</a></li>
+            <li><a href="Connexion/deconnexion">Deconnexion</a></li>
+            <li><a href="profil">Mon profil</a></li>
 
             <li>
-                <button>Jouer</button>
+                <a href="enigme"><button>Jouer</button></a>
             </li>
         </ul>
     </nav>
@@ -28,10 +28,10 @@ if (isset($_SESSION['pseudo'])){
 <header>
     <nav>
         <ul>
-            <li data-popup=\'connexion\'>Connexion</li>
-            <li data-popup=\'inscription\'>Inscription</li>
+            <li class="popup-li" data-popup=\'connexion\'>Connexion</li>
+            <li class="popup-li" data-popup=\'inscription\'>Inscription</li>
             <li>
-                <button>Jouer</button>
+                <button class="popup-li" data-popup=\'connexion\'>Jouer</button>
             </li>
         </ul>
     </nav>
