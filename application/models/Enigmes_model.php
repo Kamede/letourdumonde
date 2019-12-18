@@ -30,11 +30,20 @@ class Enigmes_model extends CI_Model {
         $query = $this->db->get('enigme');
         return $query->result_array();
     }
+
     public function recupune($id)
     {
         $query =$this->db->get_where('enigme', array('enigme_id' => $id));
         return $query->result_array();
     }
+
+    public function recupuser($pseudo)
+    {
+        $query =$this->db->get_where('user', array('user_pseudo' => $pseudo));
+        return $query->result_array();
+    }
+
+
     public function reponseok(){
         $query=$this->db->get_where('user', array('user_pseudo' =>$_SESSION['pseudo']));
         $verif=$query->result_array();
@@ -44,6 +53,7 @@ class Enigmes_model extends CI_Model {
         );
         $this->db->where('user_pseudo', $_SESSION['pseudo']);
         $this->db->update('user', $data);
+        $_SESSION['enigme']=$_SESSION['enigme']+1;
     }
     public function reponseko(){
         $moment_present=time();

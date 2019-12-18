@@ -11,7 +11,6 @@
             </li>
         </ul>
     </nav>
-    <button>Click me</button>
     <div class="progression">
         <div class="fusee">
             <img class="fusee-img" src="assets/images/fusee/fusée1.svg"/>

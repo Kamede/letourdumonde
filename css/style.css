@@ -175,6 +175,7 @@ header .title h1 {
 
 header .title img {
   margin-left: 0px;
+  width: 150px;
   -webkit-animation: 0.8s appear forwards;
           animation: 0.8s appear forwards;
   width: 150px;

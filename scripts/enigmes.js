@@ -9,14 +9,13 @@ $(document).ready( function()
             {
             type: 'POST',
             //url: 'controller.php',
-            url: 'enigme/ajax',
+            url: 'enigme/ajax' ,
             data: {},
             dataType: 'json',
             cache: false,
             success: function(result) 
             {
 
-                console.log(result);
                 // changing puzzle number
                 $('#viewer-puzzle').html("Enigme N°" + result[0].enigme_id);
 
@@ -24,7 +23,7 @@ $(document).ready( function()
                 for (i=0; i < result[0].enigme_reponse_taille; i++)
                 {
                     name = i + 1;
-                    $("#reponse-input").append('<input name="'+ name +'" class="inputs" type="text" pattern="[0-9]" maxlength="1">');
+                    $("#reponse-input").append('<input name="'+ name +'" class="inputs" type="text" maxlength="1">');
                 }
 
                 // changing puzzle background
@@ -40,23 +39,20 @@ $(document).ready( function()
                 dialogue = dialogue.replace(/[\u0000-\u0019]+/g,""); 
                 dialogue = JSON.parse(dialogue);
 
-                console.log(dialogue);
-
                 $("#viewer-tips").html("<img src='assets/images/viewer/tips/" + indices + "'>");
-                console.log("<img src='assets/images/viewer/tips/" + indices + "'>");
 
                 // Onclick
                 index = -1
 
                 $("#viewer").click(function()
                 {
-                    console.log(index);
-                    console.log(dialogue.length-1)
                     if(index < dialogue.length-1)
                     {
                         // Counter
                         index++;
-                        $("#player").attr("src", "assets/audio/" + Math.floor(Math.random() * 12) + 1 + ".mp3" );
+                        var random =  Math.floor(Math.random() * 12);
+                        random = +random + 1;
+                        $("#player").attr("src", "assets/audio/" + random + ".mp3" );
                         $("#player")[0].play();
 
 
@@ -71,8 +67,6 @@ $(document).ready( function()
 
                         // Splitting message
                         message = dialogue[index].message.split('').reverse();
-                        
-                        console.log(message);
 
                         // Animating the text
                         var output = setInterval(function() 
@@ -89,20 +83,21 @@ $(document).ready( function()
                     }   
                     else
                     {
-                        console.log("No messages found")
                     }
                 });
             },
         });
     }
 
-    getenigme(id_counter);
+    getenigme();
     // Managing answer
     $(function() {
         $('form').submit(function(event) {
             event.preventDefault();
-            let response = $('input[name="1"]').val() + $('input[name="2"]').val() + $('input[name="3"]').val() + $('input[name="4"]').val();
-            console.log(response);
+            var response = "";
+            $('#reponse-input input').each(function () {
+                response = response + this.value;
+            });
             $.ajax(
             {
                 type: 'POST',
@@ -142,7 +137,10 @@ $(document).ready( function()
                         $('#popup-button').html("Quitter");
                         $('#popup-button').css({"background-color": "red"})
                         $('.dim').css('visibility', 'visible'),
-                            $('.dim').animate({opacity: '0.3'}, 500);
+                        $('.dim').animate({opacity: '0.3'}, 500);
+                        $(document).click(function() {
+                            window.location.href = "http://89.234.183.207/letourdumonde/";
+                        })
                     }
                 }
             }); 
@@ -151,11 +149,7 @@ $(document).ready( function()
 
     $('#popup-button ').click(function() {
         $('#popup').fadeOut();
-        $('.dim').animate({opacity: '0'}, 500, function(){$('.dim').css('visibility', 'hidden')})
-        $('input[name="1"]').val("");
-        $('input[name="2"]').val("");
-        $('input[name="3"]').val("");
-        $('input[name="4"]').val("");
+        $('.dim').animate({opacity: '0'}, 500, function(){$('.dim').css('visibility', 'hidden')});
     });
 
     // Display Fullscreen

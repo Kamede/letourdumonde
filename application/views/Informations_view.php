@@ -18,15 +18,27 @@
 </header>
 <h2>Mes informations personnelles</h2>
 <div class="presentation">
-    <form>
+    <form method="post" action="Informations/changement">
         <label>Pseudo</label>
-        <input type="text" value="Pseudo">
+        <input type="text" name="pseudo" value="<?php echo $_SESSION['pseudo']; ?>">
         <label>E-Mail</label>
-        <input type="text" value="Adresse e-mail">
-        <label>Mot de passe</label>
-        <input type="text" value="Mot de passe">
-        <label>Confirmation du mot de passe</label>
-        <input type="text" value="Confirmation du mot de passe">
+        <input type="text" name="mail" value="<?php echo $_SESSION['mail']; ?>">
+        <label>Ancien mot de passe</label>
+        <input type="text" name="amdp" placeholder="Ancien mot de passe">
+        <label>Nouveau mot de passe</label>
+        <input type="text" name="mdp" placeholder="Mot de passe">
+        <label>Confirmation du nouveau mot de passe</label>
+        <input type="text" name="mdp2" placeholder="Confirmation du mot de passe">
         <input type="submit" value="Valider">
+
+        <?php
+
+        if(isset($_SESSION['erreur'])){
+            echo $_SESSION['erreur'];
+            //unset $_SESSION['erreur'];
+        }
+
+        ?>
+
     </form>
 </div>

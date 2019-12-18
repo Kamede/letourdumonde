@@ -52,11 +52,21 @@
         }
 
         public function ajax() {
-            $id = $_POST['id'];
+            $id = $_SESSION['enigme'];
             $this->load->model('Enigmes_model');//Charger le modèle
             $recup = $this->Enigmes_model->recupune($id);//Recuperer les menigmes
             $data['toutes']=$recup;
             echo json_encode($recup);
+            //$this->load->view("Vue_view",$data);// Vue + envoyer les enigmes
+
+        }
+
+        public function ajaxutil() {
+            $pseudo = $_SESSION['pseudo'];
+            $this->load->model('Enigmes_model');//Charger le modèle
+            $recup2 = $this->Enigmes_model->recupuser($pseudo);//Recuperer les menigmes
+            $data['toutes']=$recup2;
+            echo json_encode($recup2);
             //$this->load->view("Vue_view",$data);// Vue + envoyer les enigmes
 
         }
@@ -67,18 +77,17 @@
             $verif=$query->result_array();
             $enigme=$verif[0]['user_enigme'];
             echo json_encode($enigme);
-
         }
 
         public function validation() {
             $data = $_POST['response_data'];
-            $id = $_POST['id'];
+            $id = $_SESSION['enigme'];
             $this->load->model('Enigmes_model');//Charger le modèle
-            $recup = $this->Enigmes_model->recupune($id);//Recuperer les menigmes
+            $recup = $this->Enigmes_model->recupune($id);//Recuperer les enigmes
             if($data == $recup[0]['enigme_reponse'])
             {
-                $response = true;
                 $this->Enigmes_model->reponseok();
+                $response = true;
             }
             else
             {
