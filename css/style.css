@@ -177,6 +177,7 @@ header .title img {
   margin-left: 0px;
   -webkit-animation: 0.8s appear forwards;
           animation: 0.8s appear forwards;
+  width: 150px;
 }
 
 h2 {
@@ -465,6 +466,50 @@ tr {
   margin: 0 auto;
   font-family: 'century-gothic';
   font-size: 24px;
+}
+
+.progression {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.fusee {
+  width: 250px;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+  margin-left: 200px;
+}
+
+.progression-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px;
+  width: 40px;
+  margin-left: auto;
+  margin-right: 150px;
+}
+
+.trait {
+  width: 2px;
+  height: 14px;
+  background-color: black;
+}
+
+.balise {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: 2px solid #222751;
+  background-color: white;
 }
 
 @-webkit-keyframes appear {

@@ -50,7 +50,7 @@ $(document).ready( function()
                     {
                         // Counter
                         index++;
-                        $("#player").attr("src", "assets/audio/" + (Math.floor(Math.random() * 11)+1) + ".mp3" );
+                        $("#player").attr("src", "assets/audio/" + Math.floor(Math.random() * 12) + 1 + ".mp3" );
                         $("#player")[0].play();
 
 

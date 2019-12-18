@@ -21,7 +21,7 @@
         <div>
             <h3>Bienvenue Pusheen !</h3>
             <ul>
-                <li>Télécharger le PDF</li>
+                <li><a href="assets/pdf/letourdumonde.pdf">Télécharger le PDF</a></li>
                 <li>Voir l'avancement dans le jeu</li>
                 <li><a href="Statistiques">Consulter les statistiques</a></li>
                 <li><a href="Informations">Modifier les informations</a></li>
