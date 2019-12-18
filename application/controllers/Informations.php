@@ -7,6 +7,10 @@
             $this->load->view("Informations_view");
             $this->load->view("Footer_view");
         }
+
+        public function changement(){
+            
+        }
     }
 
 ?>

@@ -45,7 +45,7 @@ class Connexion_model extends CI_Model
                 if (password_verify($mdp, $verif_1[0]['user_mdp'])) {
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['mail'] =$verif_1[0]['user_email'];
-                    redirect(base_url());
+                    redirect(base_url().'profil');
                 } else {
                     $_SESSION['erreur'] = "Le mot de passe est invalide.";
                 }
@@ -53,7 +53,6 @@ class Connexion_model extends CI_Model
         }
         echo $_SESSION['erreur'];
     }
-
 
     public function deconnexion(){
         unset($_SESSION);

@@ -118,7 +118,7 @@ $(document).ready( function()
                         $('.dim').css('visibility', 'visible'),
                         $('.dim').animate({opacity: '0.3'}, 500); 
                     }
-                    else
+                    else if (result == false)
                     {
                         $('input[type="text"]').css({"color": "red"});
                         $('#popup').fadeIn();
@@ -127,6 +127,16 @@ $(document).ready( function()
                         $('#popup-button').css({"background-color": "red"})
                         $('.dim').css('visibility', 'visible'),
                         $('.dim').animate({opacity: '0.3'}, 500); 
+                    }
+                    else if (result == 'block')
+                    {
+                        $('input[type="text"]').css({"color": "red"});
+                        $('#popup').fadeIn();
+                        $('#popup-text').html("Raté ! Vous avez utilisé vos trois essais");
+                        $('#popup-button').html("Quitter");
+                        $('#popup-button').css({"background-color": "red"})
+                        $('.dim').css('visibility', 'visible'),
+                            $('.dim').animate({opacity: '0.3'}, 500);
                     }
                 }
             }); 

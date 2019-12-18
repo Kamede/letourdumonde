@@ -1,11 +1,16 @@
     <title>Profil</title>
 </head>
 <body>
+<?php
+if (isset($_SESSION['pseudo'])){
+    echo '<div class="popup"></div>
+<div class="dim"></div>
 <header>
     <nav>
         <ul>
-            <li data-popup='connexion'>Connexion</li>
-            <li data-popup='inscription'>Inscription</li>
+            <li><a href="'.base_url().'Connexion/deconnexion">Deconnexion</a></li>
+            <li><a href="'.base_url().'Enigme">Enigme</a></li>
+
             <li>
                 <button>Jouer</button>
             </li>
@@ -15,11 +20,15 @@
         <img src="assets/images/index/logo_couleur.svg">
         <h1>Le tour du monde en 10 énigmes</h1>
     </div>
-</header>
+</header>';
+}else{
+    redirect(base_url());
+}
+?>
 <div class="profil-wrapper">
     <div class="profil-wrapper__left">
         <div>
-            <h3>Bienvenue Pusheen !</h3>
+            <h3>Bienvenue <?php echo $_SESSION['pseudo'] ?> !</h3>
             <ul>
                 <li><a href="assets/pdf/letourdumonde.pdf">Télécharger le PDF</a></li>
                 <li>Voir l'avancement dans le jeu</li>
