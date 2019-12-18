@@ -25,11 +25,7 @@
         </div>
         <div id="viewer-answer">
             <form>
-                <span>
-                    <input name="1" class="inputs" type="text" pattern="[0-9]" maxlength="1">
-                    <input name="2" class="inputs" type="text" pattern="[0-9]" maxlength="1">
-                    <input name="3" class="inputs" type="text" pattern="[0-9]" maxlength="1">
-                    <input name="4" class="inputs" type="text" pattern="[0-9]" maxlength="1">
+                <span id="reponse-input">
                 </span>
                 <input type="submit" value="Valider">
             </form>

@@ -1,17 +1,16 @@
 $message = "";
 var $timeout = 15; 
-let id_counter = 1;
 
 
 $(document).ready( function() 
 {
-    function getenigme(id_counter) {
+    function getenigme() {
         $.ajax(
             {
             type: 'POST',
             //url: 'controller.php',
             url: 'enigme/ajax',
-            data: {id:id_counter},
+            data: {},
             dataType: 'json',
             cache: false,
             success: function(result) 
@@ -20,6 +19,13 @@ $(document).ready( function()
                 console.log(result);
                 // changing puzzle number
                 $('#viewer-puzzle').html("Enigme N°" + result[0].enigme_id);
+
+                $("#reponse-input").empty();
+                for (i=0; i < result[0].enigme_reponse_taille; i++)
+                {
+                    name = i + 1;
+                    $("#reponse-input").append('<input name="'+ name +'" class="inputs" type="text" pattern="[0-9]" maxlength="1">');
+                }
 
                 // changing puzzle background
                 $("#viewer").css("background-image", "url(assets/images/viewer/fonds/" + result[0].enigme_fond + ")");
@@ -101,7 +107,7 @@ $(document).ready( function()
             {
                 type: 'POST',
                 url: 'Enigme/validation',
-                data: {response_data: response, id: 1},
+                data: {response_data: response},
                 dataType: 'json',
                 cache: false,
                 success: function(result) 
@@ -185,22 +191,7 @@ $(document).ready( function()
     $("#popup-button").click(function() {
         if (validate === true)
         { 
-            $.ajax(
-                {
-                type: 'POST',
-                url: 'Enigme/enigme_id',
-                dataType: 'json',
-                cache: false,
-                success: function(result) 
-                {
-                    console.log(result)
-                    index = null;
-                    message = null;
-                    $('#viewer-textbox').html("");
-                    $('#viewer-textbox-name').html("");
-                    getenigme(result);
-                }
-            });
+            getenigme();
         }
 
     });
