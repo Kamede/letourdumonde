@@ -13,7 +13,7 @@ $( document ).ready(function() {
                 {
                     count++;
                     balise = ".balise-" + count;
-                    fusee = "fusée" + (count+1) + ".svg";
+                    fusee = "fusée" + (count) + ".svg";
 
                     console.log(balise);
                     console.log(fusee);

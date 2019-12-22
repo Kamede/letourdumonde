@@ -8,11 +8,10 @@ if (isset($_SESSION['pseudo'])){
 <header>
     <nav>
         <ul>
+            <li><a href="Accueil">Accueil</a></li>
             <li><a href="'.base_url().'Connexion/deconnexion">Deconnexion</a></li>
-            <li><a href="'.base_url().'Enigme">Enigme</a></li>
-
             <li>
-                <button>Jouer</button>
+                <a href="enigme"><button>Jouer</button></a>
             </li>
         </ul>
     </nav>

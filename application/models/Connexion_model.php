@@ -34,12 +34,14 @@ class Connexion_model extends CI_Model
 
         if (empty($pseudo)||empty($mdp)){
             $_SESSION['erreur']="Veuillez remplir tous les champs.";
+            redirect(base_url());
         } else {
             $query = $this->db->get_where('user', array('user_pseudo' => $pseudo));
             $verif_1 = $query->result_array();
 
             if (empty($verif_1)) {
                 $_SESSION['erreur'] = "Ce pseudo n'est pas valide";
+                redirect(base_url());
             } else {
 
                 if (password_verify($mdp, $verif_1[0]['user_mdp'])) {
@@ -49,10 +51,10 @@ class Connexion_model extends CI_Model
                     redirect(base_url().'profil');
                 } else {
                     $_SESSION['erreur'] = "Le mot de passe est invalide.";
+                    redirect(base_url());
                 }
             }
         }
-        echo $_SESSION['erreur'];
     }
 
     public function deconnexion(){

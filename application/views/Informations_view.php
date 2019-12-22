@@ -1,13 +1,18 @@
 <title>Présentation</title>
 </head>
 <body>
+<?php
+if (isset($_SESSION['pseudo'])){
+    echo '<div class="popup"></div>
+<div class="dim"></div>
 <header>
     <nav>
         <ul>
-            <li data-popup='connexion'>Connexion</li>
-            <li data-popup='inscription'>Inscription</li>
+            <li><a href="Accueil">Accueil</a></li>
+            <li><a href="profil">Retour au profil</a></li>
+            <li><a href="Connexion/deconnexion">Deconnexion</a></li>
             <li>
-                <button>Jouer</button>
+                <a href="enigme"><button>Jouer</button></a>
             </li>
         </ul>
     </nav>
@@ -15,8 +20,20 @@
         <img src="assets/images/index/logo_couleur.svg">
         <h1>Le tour du monde en 10 énigmes</h1>
     </div>
-</header>
+</header>';
+}else{
+    redirect(base_url());
+}
+?>
 <h2>Mes informations personnelles</h2>
+<?php
+
+if(isset($_SESSION['erreur'])){
+    echo '<p>'.$_SESSION['erreur'].'</p>';
+    $_SESSION['erreur']='';
+}
+
+?>
 <div class="presentation">
     <form method="post" action="Informations/changement">
         <label>Pseudo</label>
@@ -31,14 +48,7 @@
         <input type="text" name="mdp2" placeholder="Confirmation du mot de passe">
         <input type="submit" value="Valider">
 
-        <?php
 
-        if(isset($_SESSION['erreur'])){
-            echo $_SESSION['erreur'];
-            //unset $_SESSION['erreur'];
-        }
-
-        ?>
 
     </form>
 </div>

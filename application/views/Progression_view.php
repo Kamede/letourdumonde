@@ -1,16 +1,13 @@
     <title>Progression</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li data-popup='connexion'>Connexion</li>
-            <li data-popup='inscription'>Inscription</li>
-            <li>
-                <button>Jouer</button>
-            </li>
-        </ul>
-    </nav>
+<?php
+if (isset($_SESSION['pseudo'])){
+   include 'header.php';
+}else{
+    redirect(base_url());
+}
+?>
     <div class="progression">
         <div class="fusee">
             <img class="fusee-img" src="assets/images/fusee/fusée1.svg"/>

@@ -4,7 +4,7 @@
             <ul>
                 <li><a href="Aide">Comment jouer ?</a></li>
                 <li><a href="Statistiques">Statistiques</a></li>
-                <li><a href="Profil">Ton profil</a></li>
+                <li><a href="Profil">Mon profil</a></li>
             </ul>
         </div>
         <div class="column">

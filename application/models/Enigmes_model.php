@@ -47,12 +47,35 @@ class Enigmes_model extends CI_Model {
     public function reponseok(){
         $query=$this->db->get_where('user', array('user_pseudo' =>$_SESSION['pseudo']));
         $verif=$query->result_array();
+
+        $nb_erreurs=$verif[0]['user_nb_erreur_enigme'];
+        $points=1000-($nb_erreurs*100);
+
+        $query2=$this->db->get_where('resoudre', array('_user_id' =>$verif[0]['user_id']);
+
+
+
+        $verif2=$query2->result_array();
+
+
+        $data2=array(
+            '_user_id'=>$verif[0]['user_id'],
+            '_enigme_id'=>$_SESSION['enigme'],
+            'res_erreurs'=>$nb_erreurs,
+            'res_points'=>$points,
+        );
+        $this->db->insert('resoudre', $data2);
+
+
         $data=array(
             'user_nb_erreur_actuel'=>0,
+            'user_nb_erreur_enigme'=>0,
             'user_enigme'=>$verif[0]['user_enigme']+1,
         );
         $this->db->where('user_pseudo', $_SESSION['pseudo']);
         $this->db->update('user', $data);
+
+
         $_SESSION['enigme']=$_SESSION['enigme']+1;
     }
     public function reponseko(){
@@ -64,6 +87,7 @@ class Enigmes_model extends CI_Model {
 
         if ($verif[0]['user_nb_erreur_actuel']==2){
             $data=array(
+                'user_nb_erreur_enigme'=>$verif[0]['user_nb_erreur_enigme']+1,
                 'user_nb_erreur_actuel'=>0,
                 'user_nb_erreur'=>$verif[0]['user_nb_erreur']+1,
                 'user_heure_blocage'=>$moment_futur,
@@ -75,6 +99,7 @@ class Enigmes_model extends CI_Model {
 
         }else{
             $data=array(
+                'user_nb_erreur_enigme'=>$verif[0]['user_nb_erreur_enigme']+1,
                 'user_nb_erreur_actuel'=>$verif[0]['user_nb_erreur_actuel']+1,
                 'user_nb_erreur'=>$verif[0]['user_nb_erreur']+1,
         );

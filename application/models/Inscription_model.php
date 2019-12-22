@@ -51,8 +51,6 @@ class Inscription_model extends CI_Model {
         $mdp_conf=$this->input->post('mdp_conf');
         $code=$this->input->post('code');
 
-
-
         if (empty($pseudo)||empty($mail)||empty($code)){
             $_SESSION['erreur']="Veuillez remplir tous les champs.";
         } else {
@@ -65,23 +63,28 @@ class Inscription_model extends CI_Model {
             $verif_3 = $query_3->result_array();
 
             if (!empty($verif_3)) {
-                var_dump($verif_3[0]['cle_etat']);
+                //var_dump($verif_3[0]['cle_etat']);
                 if ($verif_3[0]['cle_etat'] == 1) {
                     $_SESSION['erreur'] = "Cette clé d'activation est déja utilisée pour un autre compte";
+                    redirect(base_url());
                 } else if ($verif_3[0]['cle_etat'] == 0) {
                     if (!empty($verif_1)) {
                         $_SESSION['erreur']="Ce pseudo est déja utilisé.";
+                        redirect(base_url());
                     } else if (!empty($verif_2)) {
                         $_SESSION['erreur'] = "Cette adresse mail est déja utilisée";
+                        redirect(base_url());
                     } else {
                         if (empty($mdp) || empty($mdp_conf)) {
                             $_SESSION['erreur'] = "Veuillez entrer un mot de passe ainsi que la vérification de mot de passe.";
+                            redirect(base_url());
                         } else {
                             if ($mdp != $mdp_conf) {
                                 $_SESSION['erreur'] = "Les mots de passe ne correspondent pas.";
+                                redirect(base_url());
                             } else {
                                 $mdp_final = password_hash($mdp, PASSWORD_BCRYPT);
-                                $data = array('user_pseudo' => $pseudo, 'user_email' => $mail, 'user_mdp' => $mdp_final, 'user_cle' => $code, 'user_etat' => 1);
+                                $data = array('user_pseudo' => $pseudo, 'user_email' => $mail, 'user_mdp' => $mdp_final, 'user_cle' => $code, 'user_etat' => 1, 'user_enigme' => 1);
                                 $inscription = $this->db->insert('user', $data);
 
                                 $query_4 = $this->db->get_where('user', array('user_pseudo' => $pseudo));
@@ -126,6 +129,7 @@ class Inscription_model extends CI_Model {
                                 $_SESSION['erreur'] = '';
                                 $_SESSION['pseudo'] = $pseudo;
                                 $_SESSION['mail'] =$mail;
+                                $_SESSION['enigme']=1;
                                 $_SESSION['connecte']="oui";
                                 redirect(base_url());
                             }
@@ -134,13 +138,9 @@ class Inscription_model extends CI_Model {
                 }
             }else{
                 $_SESSION['erreur']="Clé d'activation invalide.";
+                redirect(base_url());
             }
         }
-        if (isset($_SESSION['erreur'])){
-        echo $_SESSION['erreur'];
-        unset($_SESSION['erreur']);
-        }
-        header('Location: Accueil');
     }
 
 

@@ -42,7 +42,14 @@ if (isset($_SESSION['pseudo'])){
 </header>';
 }
 ?>
+<?php
 
+if(isset($_SESSION['erreur'])){
+    echo '<p>'.$_SESSION['erreur'].'</p>';
+    $_SESSION['erreur']='';
+}
+
+?>
 <div id="rules">
     <h2>Règles du jeu</h2>
     <p>
