@@ -7,11 +7,19 @@ class Gestion_model extends CI_Model{
         $minutes_final=$minutes*60;
         $resultat=$jours_final+$heures_final+$minutes_final+$secondes;
 
+        echo '<p>';
         echo $resultat;
         echo ' secondes de blocage';
         echo '<br>';
-        echo 'Temps à entrer dans le champ user heure blocage :';
-        echo $resultat+time();
+        echo 'Temps à entrer dans le champ user heure blocage : ';
+        if ($resultat==0){
+            echo 0;
+        }else {
+            echo $resultat + time();
+        }
+        echo '</p>';
+
+
     }
 
 }

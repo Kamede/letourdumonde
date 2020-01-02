@@ -8,6 +8,19 @@ if (isset($_SESSION['pseudo'])){
     redirect(base_url());
 }
 ?>
+
+<?php
+
+
+$final=0;
+foreach ($un as $score){
+    $final=$final+$score->res_points;
+}
+echo "<p class='tout'>Ton score actuel est de ".$final." points.";
+//Changer le css de ce truc si besoin (je pense que oui) et l'inclure quelque part. Ajouter les numéros dans les cercles.
+
+?>
+
     <div class="progression">
         <div class="fusee">
             <img class="fusee-img" src="assets/images/fusee/fusée1.svg"/>

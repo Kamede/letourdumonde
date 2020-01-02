@@ -29,7 +29,7 @@ if (isset($_SESSION['pseudo'])){
 <?php
 
 if(isset($_SESSION['erreur'])){
-    echo '<p>'.$_SESSION['erreur'].'</p>';
+    echo '<p class="tout">'.$_SESSION['erreur'].'</p>';
     $_SESSION['erreur']='';
 }
 

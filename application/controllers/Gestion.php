@@ -15,7 +15,15 @@ Class Gestion extends CI_Controller {
 
     public function index(){
         //$this->load->view("Header_2_view");
-        $this->load->view("gestion_view");
+
+        if (isset($_SESSION['co_gestion'])){
+            $this->load->view("gestion_view");
+        }else{
+
+            $this->load->view("co_gestion_view");
+        }
+
+
     }
 
     public function user(){
@@ -28,7 +36,16 @@ Class Gestion extends CI_Controller {
         $crud->unset_read();
         $crud->unset_export();
         $output=$crud->render();
-        $this->load->view('GestionAffiche2_view',$output);
+
+        if (isset($_SESSION['co_gestion'])){
+            $this->load->view('GestionAffiche2_view',$output);
+
+        }else{
+            $this->load->view("co_gestion_view");
+        }
+
+
+
     }
 
     public function enigme(){
@@ -41,7 +58,13 @@ Class Gestion extends CI_Controller {
         $crud->unset_read();
         $crud->unset_export();
         $output=$crud->render();
-        $this->load->view('GestionAffiche_view',$output);
+
+        if (isset($_SESSION['co_gestion'])){
+            $this->load->view('GestionAffiche_view',$output);
+        }else{
+            $this->load->view("co_gestion_view");
+        }
+
     }
     public function cle(){
         $crud=new grocery_CRUD();
@@ -53,7 +76,14 @@ Class Gestion extends CI_Controller {
         $crud->unset_read();
         $crud->unset_export();
         $output=$crud->render();
-        $this->load->view('GestionAffiche_view',$output);
+
+
+        if (isset($_SESSION['co_gestion'])){
+            $this->load->view('GestionAffiche_view',$output);
+        }else{
+            $this->load->view("co_gestion_view");
+        }
+
     }
 
     public function convertir($jours,$heures,$minutes,$secondes){
@@ -61,6 +91,24 @@ Class Gestion extends CI_Controller {
         $this->Gestion_model->convertirmodel($jours,$heures,$minutes,$secondes);
         //$this->load->view("convertir_view"); // Vue + envoyer les manifs
 
+    }
+
+    public function connexion(){
+        $id=$this->input->post('id');
+        $mdp=$this->input->post('mdp');
+
+        if($id=='admin'&&$mdp=='admin'){
+            $_SESSION['co_gestion']=true;
+            redirect(base_url().'Gestion');
+        }else{
+            $_SESSION['erreur']='Erreur lors de l\'entrée des informations.';
+            redirect(base_url().'Gestion');
+        }
+    }
+
+    public function deconnexion (){
+        unset($_SESSION['co_gestion']);
+        redirect(base_url());
     }
 
 }

@@ -3,9 +3,11 @@
     class Progression extends CI_Controller {
         
         public function index() {
-            $this->load->model('Connexion_model');//Charger le modèle
+            $this->load->model('Statistiques_model');//Charger le modèle
             $this->load->view("Header_view");
-            $this->load->view("Progression_view");
+            $recup=$this->Statistiques_model->recupunstat();
+            $infos['un']=$recup;
+            $this->load->view("Progression_view",$infos);
             $this->load->view("Footer_view");
         }
     }

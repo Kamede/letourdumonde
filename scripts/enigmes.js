@@ -127,7 +127,10 @@ $(document).ready( function()
                         $('#popup-button').html("Réessayer");
                         $('#popup-button').css({"background-color": "red"})
                         $('.dim').css('visibility', 'visible'),
-                        $('.dim').animate({opacity: '0.3'}, 500); 
+                        $('.dim').animate({opacity: '0.3'}, 500);
+                        $(document).click(function() {
+                            window.location.href = "http://89.234.183.207/letourdumonde/Enigme";
+                        })
                     }
                     else if (result == 'block')
                     {
@@ -140,6 +143,17 @@ $(document).ready( function()
                         $('.dim').animate({opacity: '0.3'}, 500);
                         $(document).click(function() {
                             window.location.href = "http://89.234.183.207/letourdumonde/";
+                        })
+                    }else if ( result== 'end') {
+                        $('input[type="text"]').css({"color": "red"});
+                        $('#popup').fadeIn();
+                        $('#popup-text').html("Bravo ! Vous avez terminé le jeu !");
+                        $('#popup-button').html("Quitter");
+                        $('#popup-button').css({"background-color": "green"})
+                        $('.dim').css('visibility', 'visible'),
+                            $('.dim').animate({opacity: '0.3'}, 500);
+                        $(document).click(function () {
+                            window.location.href = "http://89.234.183.207/letourdumonde/bravo";
                         })
                     }
                 }

@@ -45,24 +45,29 @@ class Enigmes_model extends CI_Model {
 
 
     public function reponseok(){
+
         $query=$this->db->get_where('user', array('user_pseudo' =>$_SESSION['pseudo']));
         $verif=$query->result_array();
 
         $nb_erreurs=$verif[0]['user_nb_erreur_enigme'];
         $points=1000-($nb_erreurs*100);
 
-        $query2=$this->db->get_where('resoudre', array('_user_id' =>$verif[0]['user_id']);
-
-
-
+        if ($_SESSION['enigme']==1){
+            $ici=1;
+        }else{
+        $ici=$_SESSION['enigme']-1;
+        }
+        $query2=$this->db->get_where('resoudre', array('_user_id' =>$verif[0]['user_id'],'_enigme_id' =>$ici));
         $verif2=$query2->result_array();
 
+        $avant=$verif2[0]['res_final'];
 
         $data2=array(
             '_user_id'=>$verif[0]['user_id'],
             '_enigme_id'=>$_SESSION['enigme'],
             'res_erreurs'=>$nb_erreurs,
             'res_points'=>$points,
+            'res_final'=>$points+$avant,
         );
         $this->db->insert('resoudre', $data2);
 
@@ -77,10 +82,15 @@ class Enigmes_model extends CI_Model {
 
 
         $_SESSION['enigme']=$_SESSION['enigme']+1;
+
+        if ($_SESSION['enigme']==10){
+            redirect(base_url().'Bravo');
+        }
+
     }
     public function reponseko(){
         $moment_present=time();
-        $moment_futur= $moment_present+30; //remettre 180 après
+        $moment_futur= $moment_present+180; //remettre 180 après
 
         $query=$this->db->get_where('user', array('user_pseudo' =>$_SESSION['pseudo']));
         $verif=$query->result_array();

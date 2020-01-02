@@ -45,7 +45,7 @@ if (isset($_SESSION['pseudo'])){
 <?php
 
 if(isset($_SESSION['erreur'])){
-    echo '<p>'.$_SESSION['erreur'].'</p>';
+    echo '<p class="tout">'.$_SESSION['erreur'].'</p>';
     $_SESSION['erreur']='';
 }
 
@@ -54,7 +54,7 @@ if(isset($_SESSION['erreur'])){
     <h2>Règles du jeu</h2>
     <p>
         Un petit spationaute s'écrase avec sa fusée sur la terre. Il réussi de justesse à s'éjecter avant le crash avec sa mongolfière. Mais les morceaux de sa fusée s'éparpillent tout autour du monde.
-        <br><br>Pars à la découverte du monde pour l'aider à recomposer sa fusée et repartir sur la Lune.<span>Suite</span>
+        <br><br>Pars à la découverte du monde pour l'aider à recomposer sa fusée et repartir sur la Lune. Un beau cadeau t'attends à la fin de ton aventure !<span><a href="Aide">Suite</a></span>
     </p>
 </div>
 <div id="sky">

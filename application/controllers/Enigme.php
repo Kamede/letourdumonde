@@ -3,6 +3,11 @@
     class Enigme extends CI_Controller {
 
         public function index() {
+
+            if ($_SESSION['enigme']==11){
+                redirect(base_url().'Bravo');
+            }
+
             $this->load->model('Enigmes_model');//Charger le modèle
             $query2 =$this->db->get_where('user', array('user_pseudo' => $_SESSION['pseudo']));
             $verif2=$query2->result_array();
@@ -29,7 +34,9 @@
                     }
                 } else {
                     if ($_SESSION['blocage'] >= time()) {
-                        echo $_SESSION['blocage'] - time();
+                        $temps = $_SESSION['blocage']-time();
+                        $_SESSION['erreur']='Votre accès au jeu est bloqué suite à trois erreurs. Temps restant : '.$temps.' secondes.';
+                        redirect(base_url());
                     } else {
                         $_SESSION['blocage'] = 0;
                         $data = array(
@@ -86,8 +93,13 @@
             $recup = $this->Enigmes_model->recupune($id);//Recuperer les enigmes
             if($data == $recup[0]['enigme_reponse'])
             {
-                $this->Enigmes_model->reponseok();
-                $response = true;
+                if ($_SESSION['enigme']==10){
+                    $this->Enigmes_model->reponseok();
+                    $response = 'end';
+                }else{
+                    $this->Enigmes_model->reponseok();
+                    $response = true;
+                }
             }
             else
             {

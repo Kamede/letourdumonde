@@ -32,6 +32,19 @@ body {
   background: #555;
 }
 
+p.tout  {
+  width: 700px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  text-align: justify;
+  font-family: 'century-gothic';
+  font-size: 18px;
+  line-height: 27px;
+  color: #222751;
+}
+
+
+
 .popup {
   width: 420px;
   height: auto;

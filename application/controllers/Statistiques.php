@@ -4,9 +4,10 @@
         
         public function index() {
             $this->load->model('Statistiques_model');
-            //$infos["mesinfos"]=$this->Statistiques_model->recupstat();
+            $recup=$this->Statistiques_model->recupstat();
+            $infos['tous']=$recup;
             $this->load->view("Header_view");
-            $this->load->view("Statistiques_view",$infos['mesinfos']);
+            $this->load->view("Statistiques_view",$infos);
             $this->load->view("Footer_view");
         }
     }

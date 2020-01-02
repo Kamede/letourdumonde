@@ -20,28 +20,6 @@ class Inscription_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function envoiemailconfirmation($email,$pseudo){
-        $envoi = 'camille.mestrude@etudiant.univ-reims.fr';
-        $entete  = 'MIME-Version: 1.0' . "\r\n";
-        $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-        $entete .= 'From:'.$envoi."\r\n";
-        $sujet = "Message de confirmation d'inscription | Le Tour Du Monde En 10 Enigmes";
-        $message = '<div style="padding: 10px;padding-bottom:0;color: black;"><h1>Bienvenue petit astronaute ! | Le Tour Du Monde En 10 Enigmes</h1>
-			        <br>
-			        <p>Bienvenue sur notre site '.$pseudo.' ! Prépare-toi à faire ton entrée dans une aventure extraordinaire !</p>
-			        <br>
-			        <p>Merci d\'avoir pris part au jeu, nous te confirmons que ton inscription a bien été effectuée ! </p>
-			        <p>Tu peux jouer dès maintenant à cette adresse : http://89.234.183.207/letourdumonde</p>
-			        <br>
-			        <p>À bientôt !</p>
-			        <br><br>
-			        <p>L\'équipe du Tour du monde en 10 énigmes</p>
-			        <br><br>
-			        <img style="width: 100wv" src="http://89.234.183.207/letourdumonde/assets/images/mail3.png"></div>
-			        ';
-        $retour = mail($email, $sujet, $message, $entete);
-    }
-
 
     public function inscription_verif(){
 
@@ -115,7 +93,7 @@ class Inscription_model extends CI_Model {
                             <br>
                             <p>Merci d\'avoir pris part au jeu, nous te confirmons que ton inscription a bien été effectuée ! </p>
                             <p>Tu peux jouer dès maintenant à cette adresse : http://89.234.183.207/letourdumonde</p>
-                            <p>Voici les informations que tu as entré lors de ton inscription :</p>
+                            <p>Voici les informations que tu as entrées lors de ton inscription :</p>
                             <p>Pseudo : ' . $pseudo . '</p>
                             <p>Adresse Mail : ' . $mail . '</p>
                             <p>Clé d\'activation : ' . $code . '</p>
@@ -128,10 +106,11 @@ class Inscription_model extends CI_Model {
                                 $retour = mail($mail, $sujet, $message, $entete);
                                 $_SESSION['erreur'] = '';
                                 $_SESSION['pseudo'] = $pseudo;
+                                $_SESSION['user_id'] = $activ[0]['user_id'];
                                 $_SESSION['mail'] =$mail;
                                 $_SESSION['enigme']=1;
                                 $_SESSION['connecte']="oui";
-                                redirect(base_url());
+                                redirect(base_url().'profil');
                             }
                         }
                     }

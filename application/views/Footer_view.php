@@ -4,11 +4,12 @@
             <ul>
                 <li><a href="Aide">Comment jouer ?</a></li>
                 <li><a href="Statistiques">Statistiques</a></li>
-                <li><a href="Profil">Mon profil</a></li>
+                <li><a href="CGU">Mentions légales et CGU</a></li>
+                <li><a href="Gestion">Gestion</a></li>
             </ul>
         </div>
         <div class="column">
-            <img src="assets/images/index/logo.png">
+            <a href="http://149.91.80.46/blackmoon/"><img src="assets/images/index/logo.png"></a>
         </div>
     </div>
 </footer>

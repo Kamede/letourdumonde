@@ -8,6 +8,7 @@ if (isset($_SESSION['pseudo'])){
 <header>
     <nav>
         <ul>
+            <li><a href="Accueil">Accueil</a></li>
             <li><a href="Connexion/deconnexion">Deconnexion</a></li>
             <li><a href="profil">Mon profil</a></li>
 
@@ -27,6 +28,7 @@ if (isset($_SESSION['pseudo'])){
 <header>
     <nav>
         <ul>
+            <li><a href="Accueil">Accueil</a></li>
             <li class="popup-li" data-popup=\'connexion\'>Connexion</li>
             <li class="popup-li" data-popup=\'inscription\'>Inscription</li>
             <li>
