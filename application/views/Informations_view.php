@@ -1,4 +1,4 @@
-<title>Présentation</title>
+<title>Informations</title>
 </head>
 <body>
 <?php

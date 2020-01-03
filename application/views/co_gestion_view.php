@@ -27,7 +27,7 @@
 
 <h2>Connexion à la partie gestion</h2>
 
-<p class="tout">Cette partie est réservée aux administrateurs du site. Si vous souhaitez acceder au jeu, rendez-vous sur la page d'accueil, puis connectez-vous depuis le formulaire disponible en haut de la page, onglet 'Connexion'.</p>
+<p class="tout">Cette partie est réservée aux administrateurs du site. Si vous souhaitez accéder au jeu, rendez-vous sur la page d'accueil, puis connectez-vous depuis le formulaire disponible en haut de la page, onglet "Connexion".</p>
 
 <?php
 

@@ -19,36 +19,39 @@ class Informations_model extends CI_Model
         if (!isset($pseudo) || !isset($mail) || !isset($amdp) || !isset($mdp) || !isset($mdp2)) {
             $_SESSION['erreur'] = "Veuillez remplir tous les champs";
             redirect(base_url().'Informations');
-
         } else {
             $query = $this->db->get_where('user', array('user_pseudo' => $_SESSION['pseudo']));
             $verif = $query->result_array();
-
-
             if (password_verify($amdp, $verif[0]['user_mdp'])==false) {
                 $_SESSION['erreur'] = "Erreur de mot de passe";
                 redirect(base_url().'Informations');
             } else {
-                if (!empty($verif_1)) {
-                    if ($pseudo!=$_SESSION['pseudo']){
-                        $_SESSION['erreur']="Ce pseudo est déja utilisé.1".$pseudo.'2'.$_SESSION['pseudo'];
-                        redirect(base_url().'Informations');
+                if (!empty($verif_1)||!empty($verif_2)) {
+                    if (!empty($verif_1)) {
+                        if ($pseudo != $_SESSION['pseudo']) {
+                            $_SESSION['erreur'] = "Ce pseudo est déja utilisé.";
+                            redirect(base_url() . 'Informations');
+                        }
+                    }
+                    if (!empty($verif_2)) {
+                        if ($verif_2[0]['user_email'] != $_SESSION['mail']) {
+                            $_SESSION['erreur'] = "Cette adresse mail est déja utilisée";
+                            redirect(base_url() . 'Informations');
+                        }
+                    }
+                }
 
-                    } else if ($verif_2[0]['user_email']!=$_SESSION['mail']) {
-                    $_SESSION['erreur'] = "Cette adresse mail est déja utilisée";
-                    redirect(base_url().'Informations');
-                    } else {
-                        if ($mdp != $mdp2) {
-                        $_SESSION['erreur'] = "Les nouveaux mots de passe ne correspondent pas.";
-                        redirect(base_url() . 'Informations');
-                        } else {
-                            $mdp_final = password_hash($mdp, PASSWORD_BCRYPT);
-                            $data = array('user_pseudo' => $pseudo, 'user_email' => $mail, 'user_mdp' => $mdp_final);
-                            $where = "user_pseudo = '" . $_SESSION['pseudo'] . "'";
-                            $modif = $this->db->update('user', $data, $where);
-                            $_SESSION['erreur'] = 'Changements effectués !';
-                            $_SESSION['pseudo'] = $pseudo;
-                            $_SESSION['mail'] = $mail;
+                if ($mdp != $mdp2) {
+                    $_SESSION['erreur'] = "Les nouveaux mots de passe ne correspondent pas.";
+                    redirect(base_url() . 'Informations');
+                } else {
+                    $mdp_final = password_hash($mdp, PASSWORD_BCRYPT);
+                    $data = array('user_pseudo' => $pseudo, 'user_email' => $mail, 'user_mdp' => $mdp_final);
+                    $where = "user_pseudo = '" . $_SESSION['pseudo'] . "'";
+                    $modif = $this->db->update('user', $data, $where);
+                    $_SESSION['erreur'] = 'Changements effectués !';
+                    $_SESSION['pseudo'] = $pseudo;
+                    $_SESSION['mail'] = $mail;
 
                             $envoi = 'camille.mestrude@etudiant.univ-reims.fr';
                             $entete = 'MIME-Version: 1.0' . "\r\n";
@@ -69,14 +72,10 @@ class Informations_model extends CI_Model
                             <br><br>
                             <img style="width: 100wv" src="http://89.234.183.207/letourdumonde/assets/images/mail3.png"></div>';
                             $retour = mail($mail, $sujet, $message, $entete);
-
-
-
                             redirect(base_url() . 'Informations');
                         }
                     }
                 }
             }
         }
-    }
-}
+
