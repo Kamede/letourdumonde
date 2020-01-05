@@ -43,7 +43,10 @@ if (isset($_SESSION['pseudo'])){
 </header>';
 }
 ?>
-<div class="presentation-video"></div>
+<div class="presentation-video">
+    <video controls>
+    <source src="assets/videos/animation.mp4" type="video/mp4">
+</div>
 <div class="presentation-buttons">
     <button><a href="<?php base_url();?>assets/pdf/letourdumonde.pdf">Télécharger le PDF</a></button>
     <button><a href="aide">Comment jouer ?</a></button>

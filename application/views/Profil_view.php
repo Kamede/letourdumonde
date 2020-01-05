@@ -29,14 +29,20 @@ if (isset($_SESSION['pseudo'])){
         <div>
             <h3>Bienvenue <?php echo $_SESSION['pseudo'] ?> !</h3>
             <ul>
-                <li><a href="assets/pdf/letourdumonde.pdf">Télécharger le PDF</a></li>
-                <li><a href="progression">Voir l'avancement dans le jeu</a></li>
-                <li><a href="Statistiques">Consulter les statistiques</a></li>
-                <li><a href="Informations">Modifier les informations</a></li>
+                <li><a class="profil-links" href="presentation">Présentation du jeu</a></li>
+                <li><a class="profil-links" href="assets/pdf/letourdumonde.pdf">Télécharger le PDF</a></li>
+                <li><a class="profil-links" href="progression">Voir l'avancement dans le jeu</a></li>
+                <li><a class="profil-links" href="Statistiques">Consulter les statistiques</a></li>
+                <li><a class="profil-links" href="Informations">Modifier les informations</a></li>
             </ul>
         </div>
     </div>
     <div class="profil-wrapper__right">
         <a href="Enigme"><button>Jouer</button></a>
     </div>
+</div>
+<div id="sky">
+    <video id="video" style="width:100%; height:100%" autoplay loop muted>
+        <source src="assets/images/banner.mp4" type="video/mp4">
+    </video>
 </div>

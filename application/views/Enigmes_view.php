@@ -17,6 +17,7 @@
 <div id="viewer">
     <p id="viewer-puzzle"></p>
     <img id="viewer-fullscreen" src="assets/images/viewer/icons/aspect_ratio-24px.svg">
+    <a href="/letourdumonde"><img id="viewer-fullscreen" src="assets/images/viewer/icons/home-24px.svg"></a>
     <div id="viewer-textbox-wrapper">
         <p id="viewer-textbox-name"></p>
         <div id="viewer-textbox">

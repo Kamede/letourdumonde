@@ -171,10 +171,10 @@ if (isset($_SESSION['pseudo'])){
 <p>Dès que <a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a> a connaissance du décès d’un Utilisateur et à défaut d’instructions de sa part, <a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a> s’engage à détruire ses données, sauf si leur conservation s’avère nécessaire à des fins probatoires ou pour répondre à une obligation légale.</p>
 &nbsp;
 <p>Si l’Utilisateur souhaite savoir comment <a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a> utilise ses Données Personnelles, demander à les rectifier ou s’oppose à leur traitement, l’Utilisateur peut contacter <a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a> par écrit à l’adresse suivante : </p>
-&nbsp;
+<p>
 BLACKMOON – DPO, Evan Bettinelli <br>
 9 Rue du Québec 10430 Rosières-Près-Troyes.
-&nbsp;
+</p>
 <p>Dans ce cas, l’Utilisateur doit indiquer les Données Personnelles qu’il souhaiterait que <a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a> corrige, mette à jour ou supprime, en s’identifiant précisément avec une copie d’une pièce d’identité (carte d’identité ou passeport). </p>
 
 <p>
@@ -214,7 +214,7 @@ BLACKMOON – DPO, Evan Bettinelli <br>
 <h2>9. Liens hypertextes « cookies » et balises (“tags”) internet</h2>
 <p>
     Le site&nbsp;<a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a>&nbsp;contient un certain nombre de liens hypertextes vers d’autres sites, mis en place avec l’autorisation de <a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a>. Cependant, <a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a> n’a pas la possibilité de vérifier le contenu des sites ainsi visités, et n’assumera en conséquence aucune responsabilité de ce fait.</p>
-Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tout ou partie des Services proposés par le site.
+<p>Sauf si vous décidez de désactiver les cookies, vous acceptez que le site puisse les utiliser. Vous pouvez à tout moment désactiver ces cookies et ce gratuitement à partir des possibilités de désactivation qui vous sont offertes et rappelées ci-après, sachant que cela peut réduire ou empêcher l’accessibilité à tout ou partie des Services proposés par le site.</p>
 <p></p>
 
 <h3>9.1. « COOKIES »</h3>
