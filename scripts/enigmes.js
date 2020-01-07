@@ -128,9 +128,7 @@ $(document).ready( function()
                         $('#popup-button').css({"background-color": "red"})
                         $('.dim').css('visibility', 'visible'),
                         $('.dim').animate({opacity: '0.3'}, 500);
-                        $(document).click(function() {
-                            window.location.href = "http://89.234.183.207/letourdumonde/Enigme";
-                        })
+
                     }
                     else if (result == 'block')
                     {
@@ -164,7 +162,6 @@ $(document).ready( function()
     $('#popup-button ').click(function() {
         $('#popup').fadeOut();
         $('.dim').animate({opacity: '0'}, 500, function(){$('.dim').css('visibility', 'hidden')});
-        $('#viewer-textbox').empty();
     });
 
     // Display Fullscreen
@@ -199,7 +196,8 @@ $(document).ready( function()
 
     $("#popup-button").click(function() {
         if (validate === true)
-        { 
+        {
+            $('#viewer-textbox').empty();
             getenigme();
         }
 

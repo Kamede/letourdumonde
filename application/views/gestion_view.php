@@ -36,7 +36,7 @@
         <li><a class="nav-link" href="<?php echo base_url()?>Gestion/user">Utilisateurs</a></li>
         <li><a class="nav-link" href="<?php echo base_url()?>Gestion/enigme">Enigmes</a></li>
         <li><a class="nav-link" href="<?php echo base_url()?>Gestion/cle">Clé d'activation</a></li>
-        <li><a class="nav-link" href="<?php  echo base_url(); ?>Gestion/deconnexion">Deconnexion</a></li>
+        <li><a class="nav-link" href="<?php  echo base_url(); ?>Gestion/deconnexion">Déconnexion</a></li>
     </ul>
     </nav>
 <br><br>

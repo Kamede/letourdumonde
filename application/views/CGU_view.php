@@ -10,7 +10,7 @@ if (isset($_SESSION['pseudo'])){
     <nav>
         <ul>
             <li><a href="Accueil">Accueil</a></li>
-            <li><a href="Connexion/deconnexion">Deconnexion</a></li>
+            <li><a href="Connexion/deconnexion">Déconnexion</a></li>
             <li><a href="profil">Mon profil</a></li>
 
             <li>

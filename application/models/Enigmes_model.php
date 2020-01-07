@@ -77,7 +77,7 @@ class Enigmes_model extends CI_Model {
     }
     public function reponseko(){
         $moment_present=time();
-        $moment_futur= $moment_present+180; //remettre 180 après
+        $moment_futur= $moment_present+15; //remettre 180 après
 
         $query=$this->db->get_where('user', array('user_pseudo' =>$_SESSION['pseudo']));
         $verif=$query->result_array();

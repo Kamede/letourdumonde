@@ -8,7 +8,7 @@ echo '<div class="popup"></div>
         <ul>
             <li><a href="'.base_url().'Accueil">Accueil</a></li>
             <li><a href="'.base_url().'Profil">Profil</a></li>
-            <li><a href="'.base_url().'Connexion/deconnexion">Deconnexion</a></li>
+            <li><a href="'.base_url().'Connexion/deconnexion">Déconnexion</a></li>
             <li>
                 <a href="enigme"><button>Jouer</button></a>
             </li>

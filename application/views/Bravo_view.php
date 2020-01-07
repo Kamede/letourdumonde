@@ -15,7 +15,7 @@ if (isset($_SESSION['pseudo'])){
         <ul>
             <li><a href="Accueil">Accueil</a></li>
             <li><a href="Profil">Profil</a></li>
-            <li><a href="Connexion/deconnexion">Deconnexion</a></li>
+            <li><a href="Connexion/deconnexion">Déconnexion</a></li>
             <li>
                 <a href="enigme"><button>Jouer</button></a>
             </li>

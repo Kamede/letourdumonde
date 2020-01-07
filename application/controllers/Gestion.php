@@ -97,7 +97,7 @@ Class Gestion extends CI_Controller {
         $id=$this->input->post('id');
         $mdp=$this->input->post('mdp');
 
-        if($id=='admin'&&$mdp=='admin'){
+        if($id=='admin'&&$mdp=='ADMIN487141'){
             $_SESSION['co_gestion']=true;
             redirect(base_url().'Gestion');
         }else{
