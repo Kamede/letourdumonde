@@ -6,24 +6,7 @@ class Enigmes_model extends CI_Model {
         parent::__construct();
         $this->load->database();
     }
-    /*public function verifblocage(){
-        $query=$this->db->get_where('user', array('user_pseudo' =>$_SESSION['pseudo']));
-        $verif=$query->result_array();
-        $heure_actuelle=time();
-        if ($verif[0]['user_heure_blocage']>=$heure_actuelle){
-            $_SESSION['erreur']='Temps de blocage restant'.($verif[0]['user_heure_blocage']-$heure_actuelle);
-            redirect(base_url());
-        }else{
-            //deblocage -> bdd changer 1 en 0 reset heure blocage
-            $data=array(
-                'user_heure_blocage'=>0,
-                'user_etat'=>0
-            );
-                $this->db->where('user_pseudo', $_SESSION['pseudo']);
-                $this->db->update('user', $data);
-            redirect(base_url());
-        }
-    }*/
+
 
     public function recuptoutes()
     {
@@ -60,7 +43,11 @@ class Enigmes_model extends CI_Model {
         $query2=$this->db->get_where('resoudre', array('_user_id' =>$verif[0]['user_id'],'_enigme_id' =>$ici));
         $verif2=$query2->result_array();
 
-        $avant=$verif2[0]['res_final'];
+        if(!isset($verif2[0]['res_final'])){
+            $avant=0;
+        }else{
+            $avant=$verif2[0]['res_final'];
+        }
 
         $data2=array(
             '_user_id'=>$verif[0]['user_id'],

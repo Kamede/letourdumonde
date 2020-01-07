@@ -19,13 +19,6 @@ class Connexion_model extends CI_Model
         return $query->result_array();
     }
 
-    public function connexion_action(){
-        if (isset($_SESSION['connecte'])){
-            redirect(base_url().'test');
-        }else{
-            redirect(base_url());
-        }
-    }
 
     public function connexion(){
 
@@ -59,7 +52,6 @@ class Connexion_model extends CI_Model
                     }
 
                 }
-
 
                 if (password_verify($mdp, $verif_1[0]['user_mdp'])) {
                     $_SESSION['pseudo'] = $pseudo;

@@ -1,13 +1,6 @@
 <?php
 class Inscription_model extends CI_Model {
 
-    protected $pseudo;
-    protected $email;
-    protected $cle;
-    protected $mdp;
-    protected $etat;
-
-
     public function __construct()
     {
         parent::__construct();
@@ -123,46 +116,6 @@ class Inscription_model extends CI_Model {
     }
 
 
-
-    /**
-     * @return mixed
-     */
-    public function getPseudo()
-    {
-        return $this->pseudo;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCle()
-    {
-        return $this->cle;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMdp()
-    {
-        return $this->mdp;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEtat()
-    {
-        return $this->etat;
-    }
 
 
 

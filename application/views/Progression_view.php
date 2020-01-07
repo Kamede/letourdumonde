@@ -16,7 +16,7 @@ $final=0;
 foreach ($un as $score){
     $final=$final+$score->res_points;
 }
-echo "<p class='tout'>Ton score actuel est de ".$final." points.";
+echo "<p class='tout'>Ton score actuel est de ".$final;
 //Changer le css de ce truc si besoin (je pense que oui) et l'inclure quelque part. Ajouter les numéros dans les cercles.
 
 ?>

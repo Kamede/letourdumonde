@@ -145,7 +145,7 @@ $(document).ready( function()
                             window.location.href = "http://89.234.183.207/letourdumonde/";
                         })
                     }else if ( result== 'end') {
-                        $('input[type="text"]').css({"color": "red"});
+                        $('input[type="text"]').css({"color": "green"});
                         $('#popup').fadeIn();
                         $('#popup-text').html("Bravo ! Vous avez terminé le jeu !");
                         $('#popup-button').html("Quitter");
