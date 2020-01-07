@@ -8,6 +8,7 @@ if (isset($_SESSION['pseudo'])){
     redirect(base_url());
 }
 ?>
+<div class="content-wrap">
 <table>
     <th class="th-first">#</th><th>Pseudo</th><th>Nombre d'enigmes résolues</th><th>Nombre d'erreurs</th><th class="th-last">Score</th>
     <tr></tr>
@@ -26,3 +27,4 @@ if (isset($_SESSION['pseudo'])){
 
     ?>
 </table>
+</div>

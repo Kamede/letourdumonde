@@ -41,10 +41,11 @@ body {
   top: 50%;
   left: 50%;
   margin-left: -200px;
-  margin-top: -300px;
+  margin-top: -400px;
   opacity: 0;
   background-color: white;
   border-radius: 25px;
+  border: 1px solid #222751;
 }
 
 .popup h2 {
@@ -557,6 +558,10 @@ video {
   text-align: center;
   font-family: 'century-gothic';
   font-size: 30px;
+}
+
+.content-wrap {
+  padding-bottom: 220px;
 }
 
 .cgu p {

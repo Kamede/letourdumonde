@@ -43,6 +43,7 @@ if (isset($_SESSION['pseudo'])){
 </header>';
 }
 ?>
+<div class="content-wrap">
 <div class="aide">
     <h2>Comment jouer ?</h2>
     <p>     - Pour commencer, tu devras obtenir le <strong>livre</strong> qui accompagne le site. Tu peux l'acheter chez un <strong>libraire</strong>, le commander sur <strong>Internet</strong> ou télécharger la version <strong>numérique</strong> (PDF disponible dans la page profil).</p>
@@ -53,4 +54,5 @@ if (isset($_SESSION['pseudo'])){
     <p>     - Ta progression est <strong>automatiquement sauvegardée</strong> si tu quittes le site. Lors de ta prochaine connexion, tu pourras reprendre là où tu t’étais arrêté.</p>
 
 
+</div>
 </div>

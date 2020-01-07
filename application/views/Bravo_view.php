@@ -30,6 +30,7 @@ if (isset($_SESSION['pseudo'])){
     redirect(base_url());
 }
 ?>
+<div class="content-wrap">
 <h2>Félicitations !</h2>
 
 <p class="tout">Tu as terminé le jeu ! </p>
@@ -49,4 +50,4 @@ echo $final;
 <br>
 <p class="tout">Tu peux consulter tes statistiques finales afin de voir ton score ainsi que celui des autres aventuriers ! <a href="Statistiques">Voir les statistiques</a> </p>
 <p class="tout">À bientôt pour de nouvelles aventures !</p>
-
+</div>

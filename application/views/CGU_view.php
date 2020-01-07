@@ -44,7 +44,7 @@ if (isset($_SESSION['pseudo'])){
 </header>';
 }
 ?>
-
+<div class="content-wrap">
 <div class="cgu">
 <h2>Définitions</h2>
 <p><b>Client&nbsp;:</b>&nbsp;tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
@@ -254,4 +254,5 @@ BLACKMOON – DPO, Evan Bettinelli <br>
 <p>
     Tout litige en relation avec l’utilisation du site&nbsp;<a href="http://89.234.183.207/letourdumonde/">http://89.234.183.207/letourdumonde/</a>&nbsp;est soumis au droit français.
     En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Troyes</p>
+</div>
 </div>

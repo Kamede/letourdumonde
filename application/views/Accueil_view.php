@@ -50,6 +50,7 @@ if(isset($_SESSION['erreur'])){
 }
 
 ?>
+<div class="content-wrap">
 <div id="rules">
     <h2>Règles du jeu</h2>
     <p>
@@ -61,4 +62,5 @@ if(isset($_SESSION['erreur'])){
     <video id="video" style="width:100%; height:100%" autoplay loop muted>
         <source src="assets/images/banner.mp4" type="video/mp4">
     </video>
+</div>
 </div>
