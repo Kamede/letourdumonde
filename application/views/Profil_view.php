@@ -24,6 +24,7 @@ if (isset($_SESSION['pseudo'])){
     redirect(base_url());
 }
 ?>
+<div class="content-wrap">
 <div class="profil-wrapper">
     <div class="profil-wrapper__left">
         <div>
@@ -45,4 +46,5 @@ if (isset($_SESSION['pseudo'])){
     <video id="video" style="width:100%; height:100%" autoplay loop muted>
         <source src="assets/images/banner.mp4" type="video/mp4">
     </video>
+</div>
 </div>

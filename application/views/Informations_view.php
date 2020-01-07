@@ -34,6 +34,7 @@ if(isset($_SESSION['erreur'])){
 }
 
 ?>
+<div class="content-wrap">
 <div class="presentation">
     <form method="post" action="Informations/changement">
         <label>Pseudo</label>
@@ -51,4 +52,5 @@ if(isset($_SESSION['erreur'])){
 
 
     </form>
+</div>
 </div>
