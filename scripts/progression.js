@@ -22,6 +22,7 @@ $( document ).ready(function() {
                     for (var i = 0; i < count; i++) {
                         balise = ".balise-" + i;
                         $(balise).css("background-color", "#F9C37D");
+                        $(balise).html(i);
                     }
                     $('.fusee-img').attr("src", "assets/images/fusee/" + fusee);
                 }

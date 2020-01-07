@@ -164,6 +164,7 @@ $(document).ready( function()
     $('#popup-button ').click(function() {
         $('#popup').fadeOut();
         $('.dim').animate({opacity: '0'}, 500, function(){$('.dim').css('visibility', 'hidden')});
+        $('#viewer-textbox').empty();
     });
 
     // Display Fullscreen

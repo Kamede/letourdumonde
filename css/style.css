@@ -32,19 +32,6 @@ body {
   background: #555;
 }
 
-p.tout  {
-  width: 700px;
-  margin: 0 auto;
-  padding-bottom: 40px;
-  text-align: justify;
-  font-family: 'century-gothic';
-  font-size: 18px;
-  line-height: 27px;
-  color: #222751;
-}
-
-
-
 .popup {
   width: 420px;
   height: auto;
@@ -251,6 +238,8 @@ footer {
   width: 100%;
   height: 220px;
   background-color: #E38F8F;
+  position: fixed;
+  bottom: 0;
 }
 
 footer #footer-wrapper {
@@ -273,6 +262,7 @@ footer #footer-wrapper .column {
       -ms-flex-pack: center;
           justify-content: center;
   height: 200px;
+  padding: 10px;
 }
 
 footer #footer-wrapper .column img {
@@ -282,7 +272,7 @@ footer #footer-wrapper .column img {
 }
 
 footer #footer-wrapper .column ul li {
-  margin: 30px 0;
+  margin: 30px 10px;
   font-family: 'century-gothic';
   font-size: 18px;
   color: white;
@@ -292,6 +282,10 @@ footer #footer-wrapper .column ul li {
 footer #footer-wrapper .column ul li a {
   color: white;
   text-decoration: none;
+}
+
+footer #footer-wrapper .column ul li a:hover {
+  text-decoration: underline;
 }
 
 .profil-wrapper {
@@ -528,6 +522,53 @@ tr {
   border-radius: 50px;
   border: 2px solid #222751;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #222751;
+  font-family: 'century-gothic';
+  font-weight: 800;
+}
+
+video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 800px;
+  height: 400px;
+}
+
+.profil-links {
+  font-size: 24px;
+}
+
+.profil-links:hover {
+  -webkit-transition: 0.1s ease all;
+  transition: 0.1s ease all;
+  color: #E38F8F;
+}
+
+.tout {
+  text-align: center;
+  font-family: 'century-gothic';
+  font-size: 30px;
+}
+
+.cgu p {
+  font-family: 'century-gothic';
+}
+
+.cgu h3 {
+  font-family: 'century-gothic';
+}
+
+.cgu ul li {
+  font-family: 'century-gothic';
 }
 
 @-webkit-keyframes appear {
@@ -689,6 +730,7 @@ tr {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: auto;
 }
 
 #viewer-answer span {
