@@ -34,6 +34,7 @@ if(isset($_SESSION['erreur'])){
 }
 
 ?>
+<div class="content-wrap">
 <div class="presentation">
     <form method="post" action="Motdepasse/action">
         <label>Pseudo</label>
@@ -42,4 +43,5 @@ if(isset($_SESSION['erreur'])){
         <input type="text" name="mail" placeholder="E-mail" ">
         <input type="submit" value="Valider">
     </form>
+</div>
 </div>
