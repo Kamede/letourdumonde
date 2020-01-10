@@ -93,7 +93,7 @@
             $recup = $this->Enigmes_model->recupune($id);//Recuperer les enigmes
             if($data == $recup[0]['enigme_reponse'])
             {
-                if ($_SESSION['enigme']==10){
+                if ($_SESSION['enigme']>=10){
                     $this->Enigmes_model->reponseok();
                     $response = 'end';
                 }else{
